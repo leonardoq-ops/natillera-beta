@@ -1,7 +1,110 @@
 /* ============================================
    NATILLERA DIGITAL - Global Styles
    ============================================ */
+/* Hero Section with Background Image */
+.hero {
+  position: relative;
+  min-height: 700px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
 
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  z-index: 1;
+}
+
+/* Dark overlay for text readability */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(26, 43, 74, 0.5);
+  z-index: 1.5;
+}
+
+.hero-logo {
+  text-align: center;
+  margin-bottom: 40px;
+  position: relative;
+  z-index: 2;
+}
+
+.wheel-logo {
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 16px rgba(26, 43, 74, 0.3));
+  animation: gentle-float 3s ease-in-out infinite;
+}
+
+@keyframes gentle-float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.hero-content {
+  text-align: center;
+  max-width: 800px;
+  position: relative;
+  z-index: 2;
+}
+
+.hero h1 {
+  font-size: 48px;
+  color: #ffffff;
+  margin-bottom: 20px;
+  line-height: 1.2;
+  font-weight: 700;
+  text-shadow: 0 2px 4px rgba(26, 43, 74, 0.5);
+}
+
+.hero h1 .highlight {
+  color: #C9A84C;
+}
+
+.hero-subtitle {
+  font-size: 18px;
+  color: #f5f0e8;
+  margin-bottom: 40px;
+  line-height: 1.6;
+  text-shadow: 0 1px 2px rgba(26, 43, 74, 0.3);
+}
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: 500px;
+  }
+
+  .hero h1 {
+    font-size: 32px;
+  }
+
+  .wheel-logo {
+    width: 150px;
+    height: 150px;
+  }
+
+  .hero-subtitle {
+    font-size: 14px;
+  }
+}
 * {
   margin: 0;
   padding: 0;
