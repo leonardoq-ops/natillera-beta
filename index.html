@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Natillera Digital — Tradición y Seguridad en un Solo Lugar</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* Landing Page Specific Styles */
+    .hero {
+      padding: 80px 0;
+      background: linear-gradient(135deg, #f9f8f6 0%, #f5f0e8 100%);
+      text-align: center;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      color: #1A2B4A;
+      margin-bottom: 20px;
+      line-height: 1.2;
+      font-weight: 700;
+    }
+
+    .hero h1 .highlight {
+      color: #C9A84C;
+    }
+
+    .hero-subtitle {
+      font-size: 18px;
+      color: #5a5450;
+      margin-bottom: 40px;
+      line-height: 1.6;
+    }
+
+    .features {
+      padding: 80px 0;
+      background-color: #ffffff;
+    }
+
+    .features-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .features-header h2 {
+      font-size: 36px;
+      color: #1A2B4A;
+      margin-bottom: 20px;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 40px;
+      margin-top: 50px;
+    }
+
+    .feature-card {
+      background: linear-gradient(to bottom, rgba(201, 168, 76, 0.03) 0%, #f5f0e8 100%);
+      border: 2px solid #C9A84C;
+      border-radius: 12px;
+      padding: 40px 30px;
+      text-align: center;
+    }
+
+    .feature-icon {
+      font-size: 40px;
+      margin-bottom: 20px;
+    }
+
+    .feature-card h3 {
+      font-size: 20px;
+      color: #1A2B4A;
+      margin-bottom: 15px;
+    }
+
+    .feature-card p {
+      font-size: 14px;
+      color: #5a5450;
+      line-height: 1.6;
+    }
+
+    .how-it-works {
+      padding: 80px 0;
+      background: linear-gradient(135deg, #f9f8f6 0%, #f5f0e8 100%);
+    }
+
+    .how-it-works-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .how-it-works-header h2 {
+      font-size: 36px;
+      color: #1A2B4A;
+      margin-bottom: 20px;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 30px;
+      position: relative;
+    }
+
+    .step {
+      background-color: #ffffff;
+      border: 2px solid #e8e6e1;
+      border-radius: 12px;
+      padding: 40px;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .step::before {
+      content: attr(data-step);
+      position: absolute;
+      top: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 40px;
+      height: 40px;
+      background-color: #C9A84C;
+      color: #1A2B4A;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      font-size: 18px;
+    }
+
+    .step h3 {
+      font-size: 18px;
+      color: #1A2B4A;
+      margin: 20px 0 15px;
+    }
+
+    .step p {
+      font-size: 14px;
+      color: #5a5450;
+      line-height: 1.6;
+    }
+
+    .tiers {
+      padding: 80px 0;
+      background-color: #ffffff;
+    }
+
+    .tiers-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .tiers-header h2 {
+      font-size: 36px;
+      color: #1A2B4A;
+      margin-bottom: 20px;
+    }
+
+    .tiers-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 30px;
+    }
+
+    .tier-card {
+      border: 2px solid #e8e6e1;
+      border-radius: 12px;
+      padding: 40px;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .tier-card:hover {
+      border-color: #C9A84C;
+      box-shadow: 0 8px 24px rgba(201, 168, 76, 0.15);
+      transform: translateY(-4px);
+    }
+
+    .tier-emoji {
+      font-size: 40px;
+      margin-bottom: 15px;
+    }
+
+    .tier-name {
+      font-size: 20px;
+      color: #1A2B4A;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .tier-amount {
+      font-size: 16px;
+      color: #C9A84C;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .tier-desc {
+      font-size: 13px;
+      color: #5a5450;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .tier-instruments {
+      font-size: 12px;
+      color: #b8b3aa;
+      background-color: #f5f0e8;
+      padding: 15px;
+      border-radius: 8px;
+      margin-top: 20px;
+    }
+
+    .cta-section {
+      padding: 80px 0;
+      background: linear-gradient(135deg, #1A2B4A 0%, #0f1a2e 100%);
+      text-align: center;
+      color: #ffffff;
+    }
+
+    .cta-content h2 {
+      font-size: 36px;
+      margin-bottom: 20px;
+      color: #C9A84C;
+    }
+
+    .cta-content p {
+      font-size: 18px;
+      margin-bottom: 40px;
+      color: #e8e6e1;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    footer {
+      padding: 40px 0;
+      background-color: #f9f8f6;
+      border-top: 2px solid #e8e6e1;
+      text-align: center;
+      font-size: 13px;
+      color: #5a5450;
+    }
+
+    footer a {
+      color: #C9A84C;
+      text-decoration: none;
+      margin: 0 15px;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 32px;
+      }
+
+      .features-grid,
+      .steps,
+      .tiers-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .hero,
+      .features,
+      .how-it-works,
+      .tiers,
+      .cta-section {
+        padding: 50px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="container">
+    <div class="header-content">
+      <a href="index.html" class="logo">Natillera <span>digital</span></a>
+      <nav>
+        <a href="#inicio">Inicio</a>
+        <a href="#mision">Nuestra Misión</a>
+        <a href="#como-funciona">Cómo Funciona</a>
+        <a href="#tiers">Niveles</a>
+        <a href="#gobernanza">Gobernanza</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="container">
+    <div class="hero-content">
+      <h1>Cosechando Juntos, un Futuro Más <span class="highlight">Digno</span></h1>
+      <p class="hero-subtitle">Tradición y Seguridad en un Solo Lugar.</p>
+      <p class="hero-subtitle" style="font-size: 16px; color: #5a5450;">Tu natillera, digitalizada. Tu dinero, protegido. Tu diciembre, garantizado.</p>
+      <a href="login.html" class="btn btn-primary btn-large">Únete a una Natillera →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features">
+  <div class="container">
+    <div class="features-header">
+      <h2>Por Qué Natillera Digital</h2>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🔒</div>
+        <h3>Seguridad Legal</h3>
+        <p>Contrato de Mandato v2.1 revisado por abogado. Tu dinero protegido en entidades vigiladas por la Superintendencia Financiera.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📊</div>
+        <h3>Transparencia Total</h3>
+        <p>Saldo en tiempo real. Rendimientos visibles. Cada transacción registrada con timestamp y código hash único.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🤝</div>
+        <h3>Tu Comunidad</h3>
+        <p>No estás solo. Tu grupo activa. Participación visible. Huella Financiera que recompensa tu disciplina, no tu saldo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-it-works" id="como-funciona">
+  <div class="container">
+    <div class="how-it-works-header">
+      <h2>Cómo Funciona</h2>
+    </div>
+    <div class="steps">
+      <div class="step" data-step="1">
+        <h3>Te Unes</h3>
+        <p>Entra a una natillera de 8-12 personas que ya se conocen. Aporte mensual según tu tier.</p>
+      </div>
+      <div class="step" data-step="2">
+        <h3>Crece</h3>
+        <p>Tu dinero gana interés compuesto en cuentas de alto rendimiento o CDTs. Ves cómo crece cada mes.</p>
+      </div>
+      <div class="step" data-step="3">
+        <h3>Cosechas</h3>
+        <p>En diciembre, recibes tu capital + rendimientos. La tradición que funciona en el siglo XXI.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIERS -->
+<section class="tiers" id="tiers">
+  <div class="container">
+    <div class="tiers-header">
+      <h2>Niveles de Progreso</h2>
+    </div>
+    <div class="tiers-grid">
+      <div class="tier-card">
+        <div class="tier-emoji">🌱</div>
+        <div class="tier-name">Semilla</div>
+        <div class="tier-amount">$50K–$100K COP</div>
+        <div class="tier-desc">Tu primer paso. Aquí tu disciplina es más valiosa que tu saldo.</div>
+        <div class="tier-instruments">Cuentas Líquidas<br>Apta para: Comenzar</div>
+      </div>
+      <div class="tier-card">
+        <div class="tier-emoji">🌿</div>
+        <div class="tier-name">Raíces</div>
+        <div class="tier-amount">$200,000 COP</div>
+        <div class="tier-desc">Raíces establecidas. Acceso a CDTs y mejor rendimiento.</div>
+        <div class="tier-instruments">Líquido + CDTs<br>Apta para: Establecidos</div>
+      </div>
+      <div class="tier-card">
+        <div class="tier-emoji">🌾</div>
+        <div class="tier-name">Cosecha</div>
+        <div class="tier-amount">$400K–$600K COP</div>
+        <div class="tier-desc">Cosecha máxima. Diversificación completa: CDTs + Fondos.</div>
+        <div class="tier-instruments">CDTs + FICs<br>Apta para: Probados</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GOVERNANCE -->
+<section class="how-it-works" id="gobernanza">
+  <div class="container">
+    <div class="how-it-works-header">
+      <h2>Blindaje Legal y Transparencia</h2>
+    </div>
+    <div class="steps">
+      <div class="step" data-step="a">
+        <h3>Contrato de Mandato</h3>
+        <p>Acuerdo privado entre personas que se conocen. Decreto 1981/1988: NO es captación masiva de dinero.</p>
+      </div>
+      <div class="step" data-step="b">
+        <h3>BIC SAS (Año 2)</h3>
+        <p>Formalización como Sociedad por Acciones Simplificada de Beneficio e Interés Colectivo (Ley 2040/2020).</p>
+      </div>
+      <div class="step" data-step="c">
+        <h3>Huella Financiera</h3>
+        <p>Tu reputación en el ecosistema. 50% puntualidad, 20% seniority, 15% trayectoria, 10% participación, 5% respuesta.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-section" id="pilot">
+  <div class="container">
+    <div class="cta-content">
+      <h2>El Diciembre que Cambia los Números</h2>
+      <p>La natillera ya existe en Colombia. Ahora existe con transparencia, seguridad y futuro.</p>
+      <a href="login.html" class="btn btn-secondary btn-large">Únete al Piloto →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <p>
+      <a href="#">Términos de Servicio</a> |
+      <a href="#">Política de Privacidad</a> |
+      <a href="#">Preguntas Frecuentes</a> |
+      <a href="#">Contacto</a>
+    </p>
+    <p style="margin-top: 20px;">
+      Natillera Digital © 2026. Un Proyecto de Inclusión y Dignidad Financiera para Colombia.<br>
+      Todos los derechos reservados. No constituye oferta pública de inversión.
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>
