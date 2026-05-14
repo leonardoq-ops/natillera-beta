@@ -1,453 +1,1224 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Natillera Digital — Tradición y Seguridad en un Solo Lugar</title>
-  <link rel="stylesheet" href="css/style.css">
-  <style>
-    /* Landing Page Specific Styles */
-    .hero {
-      padding: 80px 0;
-      background: linear-gradient(135deg, #f9f8f6 0%, #f5f0e8 100%);
-      text-align: center;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Natillera Digital · Tu natillera tradicional, con la seguridad que merece</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    .hero-content {
-      max-width: 800px;
-      margin: 0 auto;
-    }
+        :root {
+            --navy: #1A2B4A;
+            --gold: #D4AF37;
+            --teal: #1D9E75;
+            --soft-red: #8B2020;
+            --cream: #F5F1E8;
+            --light-gold: #E8D7A8;
+            --dark-navy: #0F1A2E;
+        }
 
-    .hero h1 {
-      font-size: 48px;
-      color: #1A2B4A;
-      margin-bottom: 20px;
-      line-height: 1.2;
-      font-weight: 700;
-    }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--navy);
+            background: var(--cream);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
 
-    .hero h1 .highlight {
-      color: #C9A84C;
-    }
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-    .hero-subtitle {
-      font-size: 18px;
-      color: #5a5450;
-      margin-bottom: 40px;
-      line-height: 1.6;
-    }
+        /* Header */
+        header {
+            padding: 20px 0;
+            background: rgba(26, 43, 74, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
 
-    .features {
-      padding: 80px 0;
-      background-color: #ffffff;
-    }
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-    .features-header {
-      text-align: center;
-      margin-bottom: 60px;
-    }
+        .logo-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
 
-    .features-header h2 {
-      font-size: 36px;
-      color: #1A2B4A;
-      margin-bottom: 20px;
-    }
+        .logo-header img {
+            width: 50px;
+            height: 50px;
+            filter: drop-shadow(0 4px 12px rgba(201, 168, 76, 0.4));
+        }
 
-    .features-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 40px;
-      margin-top: 50px;
-    }
+        .logo-text {
+            font-family: 'Crimson Pro', serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: #D4AF37;
+            letter-spacing: 0.5px;
+            text-shadow: 0 2px 8px rgba(212, 175, 55, 0.4);
+        }
 
-    .feature-card {
-      background: linear-gradient(to bottom, rgba(201, 168, 76, 0.03) 0%, #f5f0e8 100%);
-      border: 2px solid #C9A84C;
-      border-radius: 12px;
-      padding: 40px 30px;
-      text-align: center;
-    }
+        .logo-text span {
+            color: var(--cream);
+            font-weight: 400;
+        }
 
-    .feature-icon {
-      font-size: 40px;
-      margin-bottom: 20px;
-    }
+        nav a {
+            color: var(--cream);
+            text-decoration: none;
+            margin-left: 30px;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.3s;
+            letter-spacing: 0.5px;
+        }
 
-    .feature-card h3 {
-      font-size: 20px;
-      color: #1A2B4A;
-      margin-bottom: 15px;
-    }
+        nav a:hover {
+            color: var(--gold);
+        }
 
-    .feature-card p {
-      font-size: 14px;
-      color: #5a5450;
-      line-height: 1.6;
-    }
+        /* Hero Section */
+        .hero {
+            padding: 140px 0 120px;
+            position: relative;
+            background: #1B1B3A;
+            overflow: hidden;
+        }
 
-    .how-it-works {
-      padding: 80px 0;
-      background: linear-gradient(135deg, #f9f8f6 0%, #f5f0e8 100%);
-    }
+        /* Background image container */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('hero-background.jpg'); /* Placeholder - replace with actual image */
+            background-size: cover;
+            background-position: center;
+            opacity: 0.15;
+            z-index: 0;
+        }
 
-    .how-it-works-header {
-      text-align: center;
-      margin-bottom: 60px;
-    }
+        /* Gradient overlay for depth */
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 80% 20%, rgba(201, 168, 76, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 20% 80%, rgba(29, 158, 117, 0.06) 0%, transparent 50%);
+            z-index: 1;
+            pointer-events: none;
+        }
 
-    .how-it-works-header h2 {
-      font-size: 36px;
-      color: #1A2B4A;
-      margin-bottom: 20px;
-    }
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
 
-    .steps {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 30px;
-      position: relative;
-    }
+        .hero-text {
+            animation: slideInLeft 1s ease-out;
+        }
 
-    .step {
-      background-color: #ffffff;
-      border: 2px solid #e8e6e1;
-      border-radius: 12px;
-      padding: 40px;
-      text-align: center;
-      position: relative;
-      z-index: 1;
-    }
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
 
-    .step::before {
-      content: attr(data-step);
-      position: absolute;
-      top: -20px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 40px;
-      height: 40px;
-      background-color: #C9A84C;
-      color: #1A2B4A;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 600;
-      font-size: 18px;
-    }
+        .hero-text h1 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 64px;
+            font-weight: 700;
+            color: white;
+            line-height: 1.05;
+            margin-bottom: 28px;
+            letter-spacing: -0.5px;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
 
-    .step h3 {
-      font-size: 18px;
-      color: #1A2B4A;
-      margin: 20px 0 15px;
-    }
+        .hero-text h1 .gold-text {
+            color: var(--gold);
+            display: block;
+            position: relative;
+            margin-top: 8px;
+        }
 
-    .step p {
-      font-size: 14px;
-      color: #5a5450;
-      line-height: 1.6;
-    }
+        .hero-text h1 .gold-text::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 120px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gold), transparent);
+            border-radius: 2px;
+            box-shadow: 0 0 20px rgba(201, 168, 76, 0.5);
+        }
 
-    .tiers {
-      padding: 80px 0;
-      background-color: #ffffff;
-    }
+        .hero-text .tagline {
+            font-size: 24px;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 40px;
+            font-weight: 400;
+            line-height: 1.6;
+            max-width: 520px;
+            font-style: italic;
+        }
 
-    .tiers-header {
-      text-align: center;
-      margin-bottom: 60px;
-    }
+        .trust-badge {
+            background: linear-gradient(135deg, #1D9E75 0%, #188764 100%);
+            padding: 24px 32px;
+            border-radius: 16px;
+            margin-bottom: 40px;
+            box-shadow: 
+                0 12px 32px rgba(0, 0, 0, 0.4),
+                0 0 40px rgba(29, 158, 117, 0.5),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
 
-    .tiers-header h2 {
-      font-size: 36px;
-      color: #1A2B4A;
-      margin-bottom: 20px;
-    }
+        .trust-badge::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+            animation: shimmer 3s infinite;
+        }
 
-    .tiers-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 30px;
-    }
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
 
-    .tier-card {
-      border: 2px solid #e8e6e1;
-      border-radius: 12px;
-      padding: 40px;
-      text-align: center;
-      transition: all 0.3s ease;
-    }
+        .trust-badge p {
+            color: white;
+            font-size: 17px;
+            font-weight: 600;
+            margin: 0;
+            letter-spacing: 0.2px;
+            position: relative;
+            z-index: 1;
+        }
 
-    .tier-card:hover {
-      border-color: #C9A84C;
-      box-shadow: 0 8px 24px rgba(201, 168, 76, 0.15);
-      transform: translateY(-4px);
-    }
+        .trust-badge small {
+            display: block;
+            margin-top: 10px;
+            opacity: 0.95;
+            font-size: 13px;
+            font-weight: 400;
+            position: relative;
+            z-index: 1;
+        }
 
-    .tier-emoji {
-      font-size: 40px;
-      margin-bottom: 15px;
-    }
+        .cta-group {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
 
-    .tier-name {
-      font-size: 20px;
-      color: #1A2B4A;
-      font-weight: 600;
-      margin-bottom: 10px;
-    }
+        .btn {
+            padding: 20px 42px;
+            font-size: 17px;
+            font-weight: 600;
+            border-radius: 60px;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            letter-spacing: 0.5px;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
 
-    .tier-amount {
-      font-size: 16px;
-      color: #C9A84C;
-      font-weight: 600;
-      margin-bottom: 20px;
-    }
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
 
-    .tier-desc {
-      font-size: 13px;
-      color: #5a5450;
-      line-height: 1.6;
-      margin-bottom: 20px;
-    }
+        .btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
 
-    .tier-instruments {
-      font-size: 12px;
-      color: #b8b3aa;
-      background-color: #f5f0e8;
-      padding: 15px;
-      border-radius: 8px;
-      margin-top: 20px;
-    }
+        .btn-primary {
+            background: linear-gradient(135deg, #D4AF37 0%, #F4D03F 50%, #D4AF37 100%);
+            background-size: 200% 200%;
+            color: #1B1B3A;
+            box-shadow: 
+                0 12px 28px rgba(212, 175, 55, 0.5),
+                inset 0 -2px 8px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 1;
+            font-weight: 700;
+        }
 
-    .cta-section {
-      padding: 80px 0;
-      background: linear-gradient(135deg, #1A2B4A 0%, #0f1a2e 100%);
-      text-align: center;
-      color: #ffffff;
-    }
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 
+                0 16px 40px rgba(212, 175, 55, 0.6),
+                inset 0 -2px 8px rgba(0, 0, 0, 0.2);
+            background-position: 100% 0;
+        }
 
-    .cta-content h2 {
-      font-size: 36px;
-      margin-bottom: 20px;
-      color: #C9A84C;
-    }
+        .btn-primary:active {
+            transform: translateY(-1px);
+        }
 
-    .cta-content p {
-      font-size: 18px;
-      margin-bottom: 40px;
-      color: #e8e6e1;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-    }
+        .btn-secondary {
+            background: white;
+            color: var(--navy);
+            border: 2px solid var(--navy);
+            box-shadow: 0 8px 20px rgba(26, 43, 74, 0.15);
+        }
 
-    footer {
-      padding: 40px 0;
-      background-color: #f9f8f6;
-      border-top: 2px solid #e8e6e1;
-      text-align: center;
-      font-size: 13px;
-      color: #5a5450;
-    }
+        .btn-secondary:hover {
+            background: var(--navy);
+            color: var(--cream);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 28px rgba(26, 43, 74, 0.25);
+        }
 
-    footer a {
-      color: #C9A84C;
-      text-decoration: none;
-      margin: 0 15px;
-    }
+        /* Logo Container */
+        .hero-logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            perspective: 1200px;
+        }
 
-    footer a:hover {
-      text-decoration: underline;
-    }
+        .logo-circle {
+            position: relative;
+            transform-style: preserve-3d;
+        }
 
-    @media (max-width: 768px) {
-      .hero h1 {
-        font-size: 32px;
-      }
+        .logo-circle img {
+            width: 100%;
+            max-width: 520px;
+            height: auto;
+            filter: 
+                drop-shadow(0 40px 80px rgba(0, 0, 0, 0.5))
+                drop-shadow(0 0 60px rgba(201, 168, 76, 0.3));
+            position: relative;
+            z-index: 10;
+            transition: transform 0.3s ease;
+        }
 
-      .features-grid,
-      .steps,
-      .tiers-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-      }
+        .logo-circle:hover img {
+            transform: scale(1.05);
+            filter: 
+                drop-shadow(0 40px 80px rgba(0, 0, 0, 0.5))
+                drop-shadow(0 0 80px rgba(201, 168, 76, 0.5));
+        }
 
-      .hero,
-      .features,
-      .how-it-works,
-      .tiers,
-      .cta-section {
-        padding: 50px 0;
-      }
-    }
-  </style>
+        /* Decorative circles around logo - Enhanced for dark background */
+        .logo-circle::before,
+        .logo-circle::after {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        /* Inner glow circle */
+        .logo-circle::before {
+            width: 140%;
+            height: 140%;
+            top: -20%;
+            left: -20%;
+            background: 
+                radial-gradient(circle at 40% 40%, rgba(244, 208, 63, 0.35) 0%, transparent 60%),
+                radial-gradient(circle at 60% 60%, rgba(29, 158, 117, 0.3) 0%, transparent 60%);
+            animation: pulse 5s ease-in-out infinite;
+            filter: blur(40px);
+        }
+
+        /* Outer ambient circle */
+        .logo-circle::after {
+            width: 180%;
+            height: 180%;
+            top: -40%;
+            left: -40%;
+            background: 
+                radial-gradient(circle at 30% 30%, rgba(244, 208, 63, 0.25) 0%, transparent 50%),
+                radial-gradient(circle at 70% 70%, rgba(29, 158, 117, 0.2) 0%, transparent 50%);
+            animation: pulse 5s ease-in-out infinite 2.5s;
+            filter: blur(60px);
+        }
+
+        @keyframes pulse {
+            0%, 100% { 
+                transform: scale(1); 
+                opacity: 1; 
+            }
+            50% { 
+                transform: scale(1.2); 
+                opacity: 0.6; 
+            }
+        }
+
+        /* Decorative geometric elements */
+        .logo-decorations {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+
+        .deco-ring {
+            position: absolute;
+            border: 2px solid;
+            border-radius: 50%;
+            opacity: 0.4;
+        }
+
+        .deco-ring-1 {
+            width: 90%;
+            height: 90%;
+            top: 5%;
+            left: 5%;
+            border-color: #F4D03F;
+            animation: rotate-slow 20s linear infinite;
+            box-shadow: 0 0 30px rgba(244, 208, 63, 0.5);
+        }
+
+        .deco-ring-2 {
+            width: 110%;
+            height: 110%;
+            top: -5%;
+            left: -5%;
+            border-color: #1D9E75;
+            border-style: dashed;
+            animation: rotate-slow-reverse 25s linear infinite;
+            box-shadow: 0 0 30px rgba(29, 158, 117, 0.5);
+        }
+
+        @keyframes rotate-slow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes rotate-slow-reverse {
+            from { transform: rotate(360deg); }
+            to { transform: rotate(0deg); }
+        }
+
+        /* Floating particles - Enhanced visibility */
+        .particle {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: #F4D03F;
+            border-radius: 50%;
+            opacity: 0;
+            animation: float-particle 8s ease-in-out infinite;
+            box-shadow: 0 0 25px currentColor;
+        }
+
+        .particle:nth-child(1) {
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .particle:nth-child(2) {
+            top: 60%;
+            left: 15%;
+            animation-delay: 2s;
+            background: #1D9E75;
+        }
+
+        .particle:nth-child(3) {
+            top: 30%;
+            right: 10%;
+            animation-delay: 4s;
+        }
+
+        .particle:nth-child(4) {
+            bottom: 20%;
+            right: 15%;
+            animation-delay: 6s;
+            background: #1D9E75;
+        }
+
+        @keyframes float-particle {
+            0%, 100% {
+                transform: translateY(0) scale(0);
+                opacity: 0;
+            }
+            25% {
+                transform: translateY(-20px) scale(1);
+                opacity: 0.9;
+            }
+            50% {
+                transform: translateY(-40px) scale(1.2);
+                opacity: 1;
+            }
+            75% {
+                transform: translateY(-60px) scale(1);
+                opacity: 0.9;
+            }
+        }
+
+        /* Hero Stats Cards */
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-top: 70px;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            padding: 32px 24px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 
+                0 8px 24px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #D4AF37, #1D9E75);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-6px);
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 
+                0 16px 40px rgba(0, 0, 0, 0.4),
+                0 0 40px rgba(212, 175, 55, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.25);
+            border-color: #D4AF37;
+        }
+
+        .stat-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .stat-number {
+            font-family: 'Crimson Pro', serif;
+            font-size: 36px;
+            font-weight: 700;
+            color: #F4D03F;
+            margin-bottom: 8px;
+            line-height: 1;
+            text-shadow: 0 2px 15px rgba(244, 208, 63, 0.6);
+        }
+
+        .stat-label {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.95);
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        /* How It Works Section */
+        .how-it-works {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .section-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--navy);
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title span {
+            color: var(--gold);
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .step {
+            text-align: center;
+            padding: 40px 30px;
+            border-radius: 20px;
+            background: var(--cream);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .step::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gold), var(--teal));
+        }
+
+        .step:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 40px rgba(26, 43, 74, 0.15);
+        }
+
+        .step-number {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--navy), var(--dark-navy));
+            color: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            font-weight: 700;
+            margin: 0 auto 24px;
+            box-shadow: 0 8px 20px rgba(26, 43, 74, 0.2);
+        }
+
+        .step h3 {
+            font-size: 22px;
+            color: var(--navy);
+            margin-bottom: 16px;
+            font-weight: 600;
+        }
+
+        .step p {
+            color: var(--navy);
+            opacity: 0.8;
+            line-height: 1.7;
+            font-size: 15px;
+        }
+
+        /* Tiers Section */
+        .tiers {
+            padding: 100px 0;
+            background: var(--navy);
+            color: white;
+        }
+
+        .tiers .section-title {
+            color: white;
+        }
+
+        .tier-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .tier-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 24px;
+            padding: 40px;
+            border: 2px solid rgba(201, 168, 76, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tier-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(201, 168, 76, 0.1) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .tier-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--gold);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+        }
+
+        .tier-card:hover::before {
+            opacity: 1;
+        }
+
+        .tier-emoji {
+            font-size: 48px;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .tier-name {
+            font-family: 'Crimson Pro', serif;
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 12px;
+        }
+
+        .tier-amount {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--teal);
+            margin-bottom: 20px;
+        }
+
+        .tier-description {
+            opacity: 0.9;
+            line-height: 1.7;
+            margin-bottom: 24px;
+        }
+
+        .tier-features {
+            list-style: none;
+        }
+
+        .tier-features li {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 14px;
+            opacity: 0.85;
+        }
+
+        .tier-features li:last-child {
+            border-bottom: none;
+        }
+
+        .tier-features li::before {
+            content: '✓';
+            color: var(--teal);
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        /* Trust Section */
+        .trust {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--cream) 0%, white 100%);
+        }
+
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .trust-item {
+            text-align: center;
+            padding: 40px 30px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 8px 24px rgba(26, 43, 74, 0.08);
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .trust-item:hover {
+            border-color: var(--gold);
+            transform: translateY(-4px);
+        }
+
+        .trust-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .trust-item h3 {
+            font-size: 20px;
+            color: var(--navy);
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .trust-item p {
+            color: var(--navy);
+            opacity: 0.8;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        /* CTA Section */
+        .final-cta {
+            padding: 100px 0;
+            background: var(--navy);
+            color: white;
+            text-align: center;
+        }
+
+        .final-cta h2 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+
+        .final-cta p {
+            font-size: 20px;
+            opacity: 0.9;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-navy);
+            color: rgba(255, 255, 255, 0.7);
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h4 {
+            color: var(--gold);
+            font-size: 18px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            font-size: 14px;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .footer-section a:hover {
+            color: var(--gold);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 30px;
+            text-align: center;
+            font-size: 13px;
+        }
+
+        /* Legal Badge */
+        .legal-badge {
+            background: rgba(139, 32, 32, 0.1);
+            border: 2px solid var(--soft-red);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .legal-badge h4 {
+            color: var(--soft-red);
+            font-size: 16px;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .legal-badge p {
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 80px 0 60px;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+
+            .hero-text h1 {
+                font-size: 42px;
+            }
+
+            .hero-text .tagline {
+                font-size: 19px;
+            }
+
+            .logo-circle img {
+                max-width: 320px;
+            }
+
+            .hero-stats {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 16px;
+                margin-top: 50px;
+            }
+
+            .stat-card {
+                padding: 24px 16px;
+            }
+
+            .stat-number {
+                font-size: 28px;
+            }
+
+            .stat-label {
+                font-size: 11px;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .section-title {
+                font-size: 36px;
+            }
+
+            .cta-group {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .step:nth-child(1) { animation-delay: 0.1s; }
+        .step:nth-child(2) { animation-delay: 0.2s; }
+        .step:nth-child(3) { animation-delay: 0.3s; }
+        .step:nth-child(4) { animation-delay: 0.4s; }
+    </style>
 </head>
 <body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-header">
+                    <img src="natillera-logo.png" alt="Natillera Digital">
+                    <div class="logo-text">
+                        Natillera <span>digital</span>
+                    </div>
+                </div>
+                <nav>
+                    <a href="#como-funciona">Cómo funciona</a>
+                    <a href="#niveles">Niveles</a>
+                    <a href="#seguridad">Seguridad</a>
+                    <a href="#contacto">Contacto</a>
+                </nav>
+            </div>
+        </div>
+    </header>
 
-<!-- HEADER -->
-<header>
-  <div class="container">
-    <div class="header-content">
-      <a href="index.html" class="logo">Natillera <span>digital</span></a>
-      <nav>
-        <a href="#inicio">Inicio</a>
-        <a href="#mision">Nuestra Misión</a>
-        <a href="#como-funciona">Cómo Funciona</a>
-        <a href="#tiers">Niveles</a>
-        <a href="#gobernanza">Gobernanza</a>
-      </nav>
-    </div>
-  </div>
-</header>
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>
+                        Tu natillera tradicional,
+                        <span class="gold-text">con la seguridad que merece</span>
+                    </h1>
+                    <p class="tagline">
+                        El dinero que no gastas en enero es el dinero que cambia tu vida en diciembre.
+                    </p>
 
-<!-- HERO -->
-<section class="hero" id="inicio">
-  <div class="hero-background" style="background-image: url('assets/hero-background.PNG');"></div>
-  
-  <div class="container" style="position: relative; z-index: 2;">
-    <div class="hero-logo">
-      <img src="assets/natillera-wheel.png" alt="Natillera Digital Logo" class="wheel-logo">
-    </div>
-    
-    <div class="hero-content">
-      <h1>Cosechando Juntos, un Futuro Más <span class="highlight">Digno</span></h1>
-      <p class="hero-subtitle">Tradición y Seguridad en un Solo Lugar.</p>
-      <p class="hero-subtitle" style="font-size: 16px; color: #f5f0e8;">Tu natillera, digitalizada. Tu dinero, protegido. Tu diciembre, garantizado.</p>
-      <a href="login.html" class="btn btn-primary btn-large">Únete a una Natillera →</a>
-    </div>
-  </div>
-</section>
+                    <div class="trust-badge">
+                        <p>🏦 Tu dinero en bancos regulados, visible en tiempo real. Siempre.</p>
+                        <small>Superintendencia Financiera de Colombia · Decreto 1981 de 1988</small>
+                    </div>
 
-<!-- FEATURES -->
-<section class="features">
-  <div class="container">
-    <div class="features-header">
-      <h2>Por Qué Natillera Digital</h2>
-    </div>
-    <div class="features-grid">
-      <div class="feature-card">
-        <div class="feature-icon">🔒</div>
-        <h3>Seguridad Legal</h3>
-        <p>Contrato de Mandato v2.1 revisado por abogado. Tu dinero protegido en entidades vigiladas por la Superintendencia Financiera.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">📊</div>
-        <h3>Transparencia Total</h3>
-        <p>Saldo en tiempo real. Rendimientos visibles. Cada transacción registrada con timestamp y código hash único.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">🤝</div>
-        <h3>Tu Comunidad</h3>
-        <p>No estás solo. Tu grupo activa. Participación visible. Huella Financiera que recompensa tu disciplina, no tu saldo.</p>
-      </div>
-    </div>
-  </div>
-</section>
+                    <div class="cta-group">
+                        <a href="#contacto" class="btn btn-primary">Únete al piloto 2026</a>
+                        <a href="#como-funciona" class="btn btn-secondary">Conoce más</a>
+                    </div>
+                </div>
 
-<!-- HOW IT WORKS -->
-<section class="how-it-works" id="como-funciona">
-  <div class="container">
-    <div class="how-it-works-header">
-      <h2>Cómo Funciona</h2>
-    </div>
-    <div class="steps">
-      <div class="step" data-step="1">
-        <h3>Te Unes</h3>
-        <p>Entra a una natillera de 8-12 personas que ya se conocen. Aporte mensual según tu tier.</p>
-      </div>
-      <div class="step" data-step="2">
-        <h3>Crece</h3>
-        <p>Tu dinero gana interés compuesto en cuentas de alto rendimiento o CDTs. Ves cómo crece cada mes.</p>
-      </div>
-      <div class="step" data-step="3">
-        <h3>Cosechas</h3>
-        <p>En diciembre, recibes tu capital + rendimientos. La tradición que funciona en el siglo XXI.</p>
-      </div>
-    </div>
-  </div>
-</section>
+                <div class="hero-logo">
+                    <div class="logo-circle">
+                        <img src="natillera-logo.png" alt="Natillera Digital Logo">
+                        <div class="logo-decorations">
+                            <div class="deco-ring deco-ring-1"></div>
+                            <div class="deco-ring deco-ring-2"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-<!-- TIERS -->
-<section class="tiers" id="tiers">
-  <div class="container">
-    <div class="tiers-header">
-      <h2>Niveles de Progreso</h2>
-    </div>
-    <div class="tiers-grid">
-      <div class="tier-card">
-        <div class="tier-emoji">🌱</div>
-        <div class="tier-name">Semilla</div>
-        <div class="tier-amount">$50K–$100K COP</div>
-        <div class="tier-desc">Tu primer paso. Aquí tu disciplina es más valiosa que tu saldo.</div>
-        <div class="tier-instruments">Cuentas Líquidas<br>Apta para: Comenzar</div>
-      </div>
-      <div class="tier-card">
-        <div class="tier-emoji">🌿</div>
-        <div class="tier-name">Raíces</div>
-        <div class="tier-amount">$200,000 COP</div>
-        <div class="tier-desc">Raíces establecidas. Acceso a CDTs y mejor rendimiento.</div>
-        <div class="tier-instruments">Líquido + CDTs<br>Apta para: Establecidos</div>
-      </div>
-      <div class="tier-card">
-        <div class="tier-emoji">🌾</div>
-        <div class="tier-name">Cosecha</div>
-        <div class="tier-amount">$400K–$600K COP</div>
-        <div class="tier-desc">Cosecha máxima. Diversificación completa: CDTs + Fondos.</div>
-        <div class="tier-instruments">CDTs + FICs<br>Apta para: Probados</div>
-      </div>
-    </div>
-  </div>
-</section>
+            <!-- Hero Stats Cards -->
+            <div class="hero-stats">
+                <div class="stat-card">
+                    <div class="stat-number">10</div>
+                    <div class="stat-label">Personas por grupo</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">12</div>
+                    <div class="stat-label">Meses de ahorro</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Transparencia</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">Dic 2026</div>
+                    <div class="stat-label">Tu cosecha</div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- GOVERNANCE -->
-<section class="how-it-works" id="gobernanza">
-  <div class="container">
-    <div class="how-it-works-header">
-      <h2>Blindaje Legal y Transparencia</h2>
-    </div>
-    <div class="steps">
-      <div class="step" data-step="a">
-        <h3>Contrato de Mandato</h3>
-        <p>Acuerdo privado entre personas que se conocen. Decreto 1981/1988: NO es captación masiva de dinero.</p>
-      </div>
-      <div class="step" data-step="b">
-        <h3>BIC SAS (Año 2)</h3>
-        <p>Formalización como Sociedad por Acciones Simplificada de Beneficio e Interés Colectivo (Ley 2040/2020).</p>
-      </div>
-      <div class="step" data-step="c">
-        <h3>Huella Financiera</h3>
-        <p>Tu reputación en el ecosistema. 50% puntualidad, 20% seniority, 15% trayectoria, 10% participación, 5% respuesta.</p>
-      </div>
-    </div>
-  </div>
-</section>
+    <section id="como-funciona" class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">
+                Cómo funciona <span>tu natillera</span>
+            </h2>
 
-<!-- CTA FINAL -->
-<section class="cta-section" id="pilot">
-  <div class="container">
-    <div class="cta-content">
-      <h2>El Diciembre que Cambia los Números</h2>
-      <p>La natillera ya existe en Colombia. Ahora existe con transparencia, seguridad y futuro.</p>
-      <a href="login.html" class="btn btn-secondary btn-large">Únete al Piloto →</a>
-    </div>
-  </div>
-</section>
+            <div class="steps">
+                <div class="step fade-in">
+                    <div class="step-number">1</div>
+                    <h3>Únete a un grupo</h3>
+                    <p>10 personas que se conocen. Sin extraños. La confianza es el cimiento de todo.</p>
+                </div>
 
-<!-- FOOTER -->
-<footer>
-  <div class="container">
-    <p>
-      <a href="#">Términos de Servicio</a> |
-      <a href="#">Política de Privacidad</a> |
-      <a href="#">Preguntas Frecuentes</a> |
-      <a href="#">Contacto</a>
-    </p>
-    <p style="margin-top: 20px;">
-      Natillera Digital © 2026. Un Proyecto de Inclusión y Dignidad Financiera para Colombia.<br>
-      Todos los derechos reservados. No constituye oferta pública de inversión.
-    </p>
-  </div>
-</footer>
+                <div class="step fade-in">
+                    <div class="step-number">2</div>
+                    <h3>Aporta cada mes</h3>
+                    <p>Desde $100,000 COP mensuales. Tu disciplina vale más que tu saldo bancario.</p>
+                </div>
 
+                <div class="step fade-in">
+                    <div class="step-number">3</div>
+                    <h3>Crece tu fondo</h3>
+                    <p>Tu dinero en CDTs y cuentas de alto rendimiento. 10-12% E.A. con interés compuesto diario.</p>
+                </div>
+
+                <div class="step fade-in">
+                    <div class="step-number">4</div>
+                    <h3>La Cosecha</h3>
+                    <p>En diciembre recibes tu capital + rendimientos. Lo que plantaste todo el año, multiplicado.</p>
+                </div>
+            </div>
+
+            <div class="legal-badge">
+                <h4>⚖️ No somos una pirámide</h4>
+                <p>Colombia lleva la cicatriz de DMG. Lo sabemos. Por eso cada peso está en Nu, Lulo o CDTs vigilados por la Superintendencia Financiera. Contratos legales. Transparencia total. El beneficio viene de los bancos, no de nuevos miembros.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="niveles" class="tiers">
+        <div class="container">
+            <h2 class="section-title">
+                Tres niveles. <span>Un ecosistema.</span>
+            </h2>
+
+            <div class="tier-grid">
+                <div class="tier-card">
+                    <span class="tier-emoji">🌱</span>
+                    <div class="tier-name">Semilla</div>
+                    <div class="tier-amount">$50K–$100K COP/mes</div>
+                    <p class="tier-description">
+                        Tu primer paso. Donde tu disciplina empieza a construir historia financiera propia.
+                    </p>
+                    <ul class="tier-features">
+                        <li>Cuentas de alto rendimiento</li>
+                        <li>10-10.5% E.A.</li>
+                        <li>Liquidez inmediata</li>
+                        <li>Tu Huella Financiera empieza aquí</li>
+                    </ul>
+                </div>
+
+                <div class="tier-card">
+                    <span class="tier-emoji">🌿</span>
+                    <div class="tier-name">Raíces</div>
+                    <div class="tier-amount">$200,000 COP/mes</div>
+                    <p class="tier-description">
+                        Nivel establecido. CDTs + rendimiento acelerado. Tu constancia te trajo hasta aquí.
+                    </p>
+                    <ul class="tier-features">
+                        <li>Cuentas líquidas + CDTs</li>
+                        <li>12% E.A. en 88% del fondo</li>
+                        <li>Optimización automática</li>
+                        <li>Acceso a crédito interno</li>
+                    </ul>
+                </div>
+
+                <div class="tier-card">
+                    <span class="tier-emoji">🌾</span>
+                    <div class="tier-name">Cosecha</div>
+                    <div class="tier-amount">$400K–$600K COP/mes</div>
+                    <p class="tier-description">
+                        Nivel probado. FICs + CDTs estratégicos. Tu Huella Financiera es tu capital aquí.
+                    </p>
+                    <ul class="tier-features">
+                        <li>CDTs + Fondos de Inversión Colectiva</li>
+                        <li>12%+ E.A. optimizado</li>
+                        <li>Estrategias avanzadas</li>
+                        <li>Reconocimiento del ecosistema</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="seguridad" class="trust">
+        <div class="container">
+            <h2 class="section-title">
+                Por qué confiar en <span>Natillera Digital</span>
+            </h2>
+
+            <div class="trust-grid">
+                <div class="trust-item">
+                    <div class="trust-icon">🏛️</div>
+                    <h3>Entidades vigiladas</h3>
+                    <p>Tu dinero solo en bancos regulados por la Superintendencia Financiera de Colombia. Nu, Lulo, CDTs tradicionales. Nunca en cuentas privadas.</p>
+                </div>
+
+                <div class="trust-item">
+                    <div class="trust-icon">📜</div>
+                    <h3>Contrato legal</h3>
+                    <p>Mandato privado entre personas conocidas. 17 cláusulas. Revisado por abogado especializado. Decreto 1981 de 1988 como escudo.</p>
+                </div>
+
+                <div class="trust-item">
+                    <div class="trust-icon">📊</div>
+                    <h3>Transparencia total</h3>
+                    <p>Acceso en tiempo real a tu saldo, proyección de diciembre, estado del grupo. Cada transacción con código hash único e inmutable.</p>
+                </div>
+
+                <div class="trust-item">
+                    <div class="trust-icon">🤝</div>
+                    <h3>Entre conocidos</h3>
+                    <p>Grupos de 8-12 personas con relación previa verificable. La natillera que siempre existió, con la tecnología y protección legal que merece.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" class="final-cta">
+        <div class="container">
+            <h2>Tu diciembre 2026 empieza hoy</h2>
+            <p>
+                Únete al proyecto piloto. 10 personas. 12 meses. Una Cosecha que cambia la matemática de diciembre.
+            </p>
+            <a href="mailto:contacto@natilleradigital.co" class="btn btn-primary">Solicita tu lugar</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Natillera Digital</h4>
+                    <p>Infraestructura económica para el crecimiento colectivo. Tu natillera tradicional, con la seguridad legal y financiera que merece.</p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <a href="#">Contrato de Mandato</a>
+                    <a href="#">Términos y condiciones</a>
+                    <a href="#">Política de privacidad</a>
+                    <a href="#">Marco regulatorio</a>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Contacto</h4>
+                    <a href="mailto:contacto@natilleradigital.co">contacto@natilleradigital.co</a>
+                    <p>Bogotá, Colombia</p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Marco legal</h4>
+                    <p style="font-size: 12px; line-height: 1.6;">
+                        Decreto 1981 de 1988 · Estatuto Orgánico del Sistema Financiero · Ley 454 de 1998 · Ley 2040 de 2020 (BIC SAS)
+                    </p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Natillera Digital. Proyecto piloto en curso. Todos los derechos reservados.</p>
+                <p style="margin-top: 10px; font-size: 12px; opacity: 0.6;">
+                    Este es un acuerdo privado entre personas naturales conocidas. No constituye captación masiva de dinero ni intermediación financiera.
+                </p>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
