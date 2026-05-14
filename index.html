@@ -113,7 +113,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('hero-background.PNG'); /* Placeholder - replace with actual image */
+            background-image: img src='hero-background.PNG'; /* Placeholder - replace with actual image */
             background-size: cover;
             background-position: center;
             opacity: 0.15;
@@ -448,62 +448,6 @@
             to { transform: rotate(0deg); }
         }
 
-        /* Floating particles - Enhanced visibility */
-        .particle {
-            position: absolute;
-            width: 8px;
-            height: 8px;
-            background: #F4D03F;
-            border-radius: 50%;
-            opacity: 0;
-            animation: float-particle 8s ease-in-out infinite;
-            box-shadow: 0 0 25px currentColor;
-        }
-
-        .particle:nth-child(1) {
-            top: 20%;
-            left: 10%;
-            animation-delay: 0s;
-        }
-
-        .particle:nth-child(2) {
-            top: 60%;
-            left: 15%;
-            animation-delay: 2s;
-            background: #1D9E75;
-        }
-
-        .particle:nth-child(3) {
-            top: 30%;
-            right: 10%;
-            animation-delay: 4s;
-        }
-
-        .particle:nth-child(4) {
-            bottom: 20%;
-            right: 15%;
-            animation-delay: 6s;
-            background: #1D9E75;
-        }
-
-        @keyframes float-particle {
-            0%, 100% {
-                transform: translateY(0) scale(0);
-                opacity: 0;
-            }
-            25% {
-                transform: translateY(-20px) scale(1);
-                opacity: 0.9;
-            }
-            50% {
-                transform: translateY(-40px) scale(1.2);
-                opacity: 1;
-            }
-            75% {
-                transform: translateY(-60px) scale(1);
-                opacity: 0.9;
-            }
-        }
 
         /* Hero Stats Cards */
         .hero-stats {
@@ -1009,7 +953,7 @@
 
                 <div class="hero-logo">
                     <div class="logo-circle">
-                        <img src="natillera-logo.png" alt="Natillera Digital Logo">
+                        <img src="natillera-wheel.png" alt="Natillera Digital Logo">
                         <div class="logo-decorations">
                             <div class="deco-ring deco-ring-1"></div>
                             <div class="deco-ring deco-ring-2"></div>
