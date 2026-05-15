@@ -70,22 +70,18 @@
             <!-- Main panels -->
             <div class="dashboard-main">
 
-                <div class="panel">
+                <div class="panel panel-wheel">
                     <div class="panel-title">Tu Cosecha 2026</div>
-                    <div class="progress-label">
-                        <span>Progreso del año</span>
-                        <span id="progressPct">—%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" id="progressFill" style="width: 0%"></div>
-                    </div>
-                    <div class="placeholder-block">
-                        <span class="placeholder-icon">📊</span>
-                        <p>
-                            Aquí verás tu historial de aportes,<br>
-                            rendimientos mensuales y estado del grupo.<br>
-                            <strong>Próximamente.</strong>
-                        </p>
+                    <div class="wheel-container">
+                        <div class="wheel-wrap">
+                            <svg id="natilleraWheel" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg"></svg>
+                            <img src="assets/frog.png" alt="" class="wheel-frog" onerror="this.style.display='none'">
+                        </div>
+                        <div class="wheel-legend">
+                            <div class="wl-item wl-done"><span></span>Mes completado</div>
+                            <div class="wl-item wl-current"><span></span>Mes en curso</div>
+                            <div class="wl-item wl-future"><span></span>Por venir</div>
+                        </div>
                     </div>
                 </div>
 
@@ -113,6 +109,7 @@
         </div>
     </footer>
 
+    <script src="js/wheel.js"></script>
     <script>
         // Redirect to login if no session
         const stored = localStorage.getItem('natillera_user');
@@ -126,17 +123,7 @@
             }
         }
 
-        // Year progress bar (based on 2026)
-        const now   = new Date();
-        const start = new Date(2026, 0, 1);
-        const end   = new Date(2026, 11, 31);
-        const pct   = Math.min(100, Math.max(0, Math.round(((now - start) / (end - start)) * 100)));
-        document.getElementById('progressPct').textContent = pct + '%';
-        setTimeout(() => {
-            document.getElementById('progressFill').style.width = pct + '%';
-        }, 300);
-
-        function logout() {
+function logout() {
             localStorage.removeItem('natillera_user');
             window.location.href = 'login.html';
         }
