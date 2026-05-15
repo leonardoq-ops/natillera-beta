@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Natillera Digital — Mi Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-header">
+                    <img src="assets/natillera-wheel.png" alt="Natillera Digital">
+                    <div class="logo-text">Natillera <span>digital</span></div>
+                </div>
+                <nav>
+                    <a href="index.html">Inicio</a>
+                    <a href="#" id="navLogout">Cerrar sesión</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <div class="dashboard-wrapper">
+        <div class="container">
+
+            <!-- Welcome bar -->
+            <div class="dashboard-header-bar">
+                <div class="dashboard-greeting">
+                    <h1>Bienvenido, <span id="userName">Piloto</span> 👋</h1>
+                    <p>Tu Cosecha 2026 está creciendo</p>
+                </div>
+                <button class="logout-btn" onclick="logout()">Cerrar sesión</button>
+            </div>
+
+            <!-- Summary cards -->
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <span class="card-icon">💰</span>
+                    <div class="card-label">Mi aporte mensual</div>
+                    <div class="card-value gold">— —</div>
+                    <div class="card-sub">Por definir</div>
+                </div>
+                <div class="summary-card">
+                    <span class="card-icon">📈</span>
+                    <div class="card-label">Saldo acumulado</div>
+                    <div class="card-value">— —</div>
+                    <div class="card-sub">Actualizado en tiempo real</div>
+                </div>
+                <div class="summary-card">
+                    <span class="card-icon">🌾</span>
+                    <div class="card-label">Proyección Diciembre</div>
+                    <div class="card-value teal">— —</div>
+                    <div class="card-sub">Con rendimiento estimado</div>
+                </div>
+                <div class="summary-card">
+                    <span class="card-icon">👥</span>
+                    <div class="card-label">Mi grupo</div>
+                    <div class="card-value">— —</div>
+                    <div class="card-sub">Miembros activos</div>
+                </div>
+            </div>
+
+            <!-- Main panels -->
+            <div class="dashboard-main">
+
+                <div class="panel">
+                    <div class="panel-title">Tu Cosecha 2026</div>
+                    <div class="progress-label">
+                        <span>Progreso del año</span>
+                        <span id="progressPct">—%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+                    </div>
+                    <div class="placeholder-block">
+                        <span class="placeholder-icon">📊</span>
+                        <p>
+                            Aquí verás tu historial de aportes,<br>
+                            rendimientos mensuales y estado del grupo.<br>
+                            <strong>Próximamente.</strong>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <div class="panel-title">Actividad reciente</div>
+                    <div class="placeholder-block">
+                        <span class="placeholder-icon">🔔</span>
+                        <p>
+                            Notificaciones de aportes<br>
+                            y movimientos del grupo.<br>
+                            <strong>Próximamente.</strong>
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 Natillera Digital. Beta Piloto.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Redirect to login if no session
+        const stored = localStorage.getItem('natillera_user');
+        if (!stored) {
+            window.location.href = 'login.html';
+        } else {
+            const user = JSON.parse(stored);
+            const nameEl = document.getElementById('userName');
+            if (nameEl && user.email) {
+                nameEl.textContent = user.email.split('@')[0];
+            }
+        }
+
+        // Year progress bar (based on 2026)
+        const now   = new Date();
+        const start = new Date(2026, 0, 1);
+        const end   = new Date(2026, 11, 31);
+        const pct   = Math.min(100, Math.max(0, Math.round(((now - start) / (end - start)) * 100)));
+        document.getElementById('progressPct').textContent = pct + '%';
+        setTimeout(() => {
+            document.getElementById('progressFill').style.width = pct + '%';
+        }, 300);
+
+        function logout() {
+            localStorage.removeItem('natillera_user');
+            window.location.href = 'login.html';
+        }
+
+        document.getElementById('navLogout').addEventListener('click', function (e) {
+            e.preventDefault();
+            logout();
+        });
+    </script>
+
+</body>
+</html>
