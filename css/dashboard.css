@@ -400,12 +400,15 @@ header {
 }
 
 /* ============================================
-   FILA 2 — 3 tarjetas de análisis
+   FILA 2 — Rueda centrada (sola en su fila)
    ============================================ */
-.analysis-grid {
-  display: grid;
-  grid-template-columns: 1.25fr 1fr 1fr;
-  gap: 18px;
+.wheel-row {
+  display: flex;
+  justify-content: center;
+}
+
+.wheel-row .panel-wheel-slot {
+  width: min(500px, 100%);
 }
 
 /* — Tasas — */
@@ -548,12 +551,12 @@ header {
 }
 
 /* ============================================
-   FILA 3 — Rueda + Indicadores
+   FILA 3 — Análisis (3 tarjetas) + Indicadores
    ============================================ */
-.dashboard-main {
+.lower-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 22px;
+  grid-template-columns: 1.3fr 1fr 1fr 1.1fr;
+  gap: 18px;
 }
 
 /* — Slot de la rueda — */
@@ -774,8 +777,11 @@ header {
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     gap: 4px;
   }
-  .analysis-grid  { grid-template-columns: 1fr; }
-  .dashboard-main { grid-template-columns: 1fr; }
+  .lower-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 700px) {
+  .lower-grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 600px) {
