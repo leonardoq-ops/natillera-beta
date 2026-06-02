@@ -5,12 +5,25 @@
    ============================================ */
 
 :root {
-    --navy: #1A2B4A;
-    --gold: #D4AF37;
-    --teal: #1D9E75;
-    --cream: #F5F1E8;
-    --light-gold: #E8D7A8;
-    --dark-navy: #0F1A2E;
+    /* ── Páramo tokens — fuente de verdad ── */
+    --navy:           #131127;
+    --gold:           #C9942A;
+    --teal:           #1D9E75;
+    --cream:          #F3F5E8;
+    --light-gold:     #EACA8F;
+    --dark-navy:      #0A0A0A;
+
+    /* aliases para compatibilidad con dashboard.css */
+    --header-bg:      #131127;
+    --header-border:  #C9942A;
+    --bg-paramo:      #F3F5E8;
+    --text-dark:      #1A1A1A;
+    --text-light:     #EDF2EB;
+    --text-muted:     #8EA296;
+    --text-gold:      #C9942A;
+    --gold-glow:      rgba(201, 148, 42, 0.4);
+    --gold-subtle:    rgba(201, 148, 42, 0.15);
+    --soft-red:       #8B2020;
 }
 
 * {
@@ -20,10 +33,12 @@
 }
 
 body {
-    font-family: 'Montserrat', sans-serif;
-    color: var(--navy);
+    font-family: 'DM Sans', 'Montserrat', sans-serif;
+    color: var(--text-dark);
     line-height: 1.6;
     overflow-x: hidden;
+    background-color: var(--bg-paramo);
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23b8bca8' fill-opacity='0.25'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
 
 .container {
@@ -33,16 +48,17 @@ body {
 }
 
 /* ============================================
-   HEADER
+   HEADER — Páramo
    ============================================ */
 header {
-    padding: 20px 0;
-    background: rgba(26, 43, 74, 0.95);
+    padding: 16px 0;
+    background: var(--header-bg);
+    border-bottom: 2px solid var(--gold);
     backdrop-filter: blur(10px);
     position: sticky;
     top: 0;
     z-index: 100;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
 }
 
 .header-content {
@@ -54,38 +70,39 @@ header {
 .logo-header {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 14px;
     text-decoration: none;
 }
 
 .logo-header img {
-    width: 50px;
-    height: 50px;
-    filter: drop-shadow(0 4px 12px rgba(201, 168, 76, 0.4));
+    width: 46px;
+    height: 46px;
+    filter: drop-shadow(0 4px 12px rgba(201, 148, 42, 0.5));
 }
 
 .logo-header .logo-text {
-    font-family: 'Crimson Pro', serif;
-    font-size: 28px;
+    font-family: 'Fraunces', 'Crimson Pro', serif;
+    font-size: 26px;
     font-weight: 700;
     color: var(--gold);
     letter-spacing: 0.5px;
-    text-shadow: 0 2px 8px rgba(212, 175, 55, 0.4);
+    text-shadow: 0 0 16px var(--gold-glow);
 }
 
 .logo-header .logo-text span {
-    color: var(--cream);
+    color: var(--text-light);
     font-weight: 400;
 }
 
 nav a {
-    color: var(--cream);
+    color: var(--text-light);
     text-decoration: none;
-    margin-left: 30px;
-    font-size: 14px;
+    margin-left: 28px;
+    font-size: 13px;
     font-weight: 500;
     transition: color 0.3s;
     letter-spacing: 0.5px;
+    font-family: 'DM Sans', sans-serif;
 }
 
 nav a:hover {
@@ -98,7 +115,7 @@ nav a:hover {
 footer {
     background: var(--dark-navy);
     color: rgba(255, 255, 255, 0.7);
-    padding: 60px 0 30px;
+    padding: 40px 0 24px;
 }
 
 .footer-content {
@@ -110,38 +127,38 @@ footer {
 
 .footer-section h4 {
     color: var(--gold);
-    font-size: 18px;
-    margin-bottom: 20px;
+    font-family: 'Fraunces', serif;
+    font-size: 16px;
+    margin-bottom: 16px;
     font-weight: 600;
 }
 
 .footer-section p,
 .footer-section a {
-    font-size: 14px;
+    font-size: 13px;
     line-height: 1.8;
-    color: rgba(255, 255, 255, 0.7);
+    color: rgba(255, 255, 255, 0.65);
     text-decoration: none;
     display: block;
     margin-bottom: 8px;
 }
 
-.footer-section a:hover {
-    color: var(--gold);
-}
+.footer-section a:hover { color: var(--gold); }
 
 .footer-bottom {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding-top: 30px;
+    padding-top: 24px;
     text-align: center;
-    font-size: 13px;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.4);
 }
 
 /* ============================================
    BUTTONS
    ============================================ */
 .btn {
-    padding: 20px 42px;
-    font-size: 17px;
+    padding: 18px 40px;
+    font-size: 16px;
     font-weight: 600;
     border-radius: 60px;
     text-decoration: none;
@@ -152,15 +169,14 @@ footer {
     cursor: pointer;
     position: relative;
     overflow: hidden;
+    font-family: 'DM Sans', sans-serif;
 }
 
 .btn::before {
     content: '';
     position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
+    top: 50%; left: 50%;
+    width: 0; height: 0;
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.2);
     transform: translate(-50%, -50%);
@@ -173,65 +189,64 @@ footer {
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, #D4AF37 0%, #F4D03F 50%, #D4AF37 100%);
+    background: linear-gradient(135deg, #C9942A 0%, #EACA8F 50%, #C9942A 100%);
     background-size: 200% 200%;
-    color: #1B1B3A;
-    box-shadow: 0 12px 28px rgba(212, 175, 55, 0.5), inset 0 -2px 8px rgba(0, 0, 0, 0.2);
+    color: #1A1A1A;
+    box-shadow: 0 12px 28px rgba(201, 148, 42, 0.45),
+                inset 0 -2px 8px rgba(0, 0, 0, 0.2);
     font-weight: 700;
 }
 
 .btn-primary:hover {
     transform: translateY(-3px);
-    box-shadow: 0 16px 40px rgba(212, 175, 55, 0.6), inset 0 -2px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 16px 40px rgba(201, 148, 42, 0.6),
+                inset 0 -2px 8px rgba(0, 0, 0, 0.2);
     background-position: 100% 0;
 }
 
-.btn-primary:active {
-    transform: translateY(-1px);
-}
-
 .btn-secondary {
-    background: white;
-    color: var(--navy);
-    border: 2px solid var(--navy);
-    box-shadow: 0 8px 20px rgba(26, 43, 74, 0.15);
+    background: transparent;
+    color: var(--gold);
+    border: 2px solid var(--gold);
+    box-shadow: 0 8px 20px rgba(201, 148, 42, 0.15);
 }
 
 .btn-secondary:hover {
-    background: var(--navy);
-    color: var(--cream);
+    background: var(--gold);
+    color: var(--dark-navy);
     transform: translateY(-3px);
-    box-shadow: 0 12px 28px rgba(26, 43, 74, 0.25);
+    box-shadow: 0 12px 28px rgba(201, 148, 42, 0.3);
 }
 
 /* ============================================
    FORMS
    ============================================ */
 .form-group {
-    margin-bottom: 25px;
+    margin-bottom: 24px;
     display: flex;
     flex-direction: column;
 }
 
 label {
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 600;
-    color: var(--navy);
+    color: var(--text-dark);
     margin-bottom: 8px;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    font-family: 'DM Sans', sans-serif;
 }
 
 input,
 textarea,
 select {
     padding: 12px 16px;
-    border: 1px solid #e8e6e1;
+    border: 1px solid rgba(201, 148, 42, 0.3);
     border-radius: 8px;
     font-size: 14px;
-    font-family: inherit;
-    background-color: #f9f8f6;
-    color: var(--navy);
+    font-family: 'DM Sans', sans-serif;
+    background-color: rgba(243, 245, 232, 0.8);
+    color: var(--text-dark);
     transition: all 0.3s ease;
 }
 
@@ -241,15 +256,13 @@ select:focus {
     outline: none;
     border-color: var(--gold);
     background-color: #ffffff;
-    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+    box-shadow: 0 0 0 3px var(--gold-subtle);
 }
 
-input::placeholder {
-    color: #b8b3aa;
-}
+input::placeholder { color: var(--text-muted); }
 
 /* ============================================
-   MESSAGES (login / forms)
+   MESSAGES
    ============================================ */
 .error-message,
 .success-message {
@@ -259,27 +272,26 @@ input::placeholder {
     margin-bottom: 20px;
     font-size: 13px;
     text-align: center;
+    font-family: 'DM Sans', sans-serif;
 }
 
 .error-message {
     background-color: rgba(139, 32, 32, 0.1);
-    border: 1px solid #8B2020;
-    color: #8B2020;
+    border: 1px solid var(--soft-red);
+    color: var(--soft-red);
 }
 
 .success-message {
     background-color: rgba(29, 158, 117, 0.1);
-    border: 1px solid #1D9E75;
-    color: #1D9E75;
+    border: 1px solid var(--teal);
+    color: var(--teal);
 }
 
 .error-message.show,
-.success-message.show {
-    display: block;
-}
+.success-message.show { display: block; }
 
 /* ============================================
-   ANIMATIONS (shared)
+   ANIMATIONS
    ============================================ */
 @keyframes fadeInUp {
     from { opacity: 0; transform: translateY(30px); }
@@ -287,29 +299,22 @@ input::placeholder {
 }
 
 /* ============================================
-   RESPONSIVE (shared)
+   RESPONSIVE
    ============================================ */
-@media (max-width: 768px) {
-    nav { display: none; }
-}
+@media (max-width: 768px) { nav { display: none; } }
+@media (max-width: 480px) { .container { padding: 0 15px; } }
 
-@media (max-width: 480px) {
-    .container { padding: 0 15px; }
-}
-
-/* Estilos del Botón de WhatsApp */
+/* ── WhatsApp float ── */
 .whatsapp-float {
     position: fixed;
-    width: 60px;
-    height: 60px;
-    bottom: 40px;
-    right: 40px;
+    width: 56px; height: 56px;
+    bottom: 36px; right: 36px;
     background-color: #25d366;
     color: #FFF;
     border-radius: 50px;
     text-align: center;
-    font-size: 30px;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    font-size: 28px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.25);
     z-index: 1000;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
@@ -322,7 +327,4 @@ input::placeholder {
     box-shadow: 0px 8px 25px rgba(37, 211, 102, 0.4);
 }
 
-.whatsapp-float img {
-    width: 35px;
-    height: 35px;
-}
+.whatsapp-float img { width: 32px; height: 32px; }
