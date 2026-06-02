@@ -1,52 +1,9 @@
 /* ============================================
    NATILLERA DIGITAL · Dashboard
-   Estética Páramo v2.0 — DESIGN_SPEC.md
+   Estética Páramo v2.1 — DESIGN_SPEC.md
    Colores extraídos de IMG_8495.PNG
    NO modificar variables sin leer el spec.
    ============================================ */
-
-/* ── Tokens exactos del DESIGN_SPEC v2.0 ── */
-:root {
-  /* Header */
-  --header-bg:      #131127;
-  --header-border:  #C9942A;
-
-  /* Fondo general */
-  --bg-paramo:      #F3F5E8;
-
-  /* Tarjetas — degradado vertical claro → oscuro */
-  --card-top:       #EDF2EB;
-  --card-mid:       #8EA296;
-  --card-bottom:    #3B5248;
-  --card-deep:      #2A3828;
-
-  /* Oro Muisca */
-  --gold:           #C9942A;
-  --gold-light:     #EACA8F;
-  --gold-glow:      rgba(201, 148, 42, 0.4);
-  --gold-subtle:    rgba(201, 148, 42, 0.15);
-
-  /* Sistema */
-  --navy:           #1A1826;
-  --teal:           #1D9E75;
-  --soft-red:       #8B2020;
-
-  /* Texto */
-  --text-dark:      #1A1A1A;
-  --text-light:     #EDF2EB;
-  --text-muted:     #8EA296;
-  --text-gold:      #C9942A;
-
-  /* Estados de miembros */
-  --viva-bg:        #435E4A;
-  --viva-border:    #5A7A5F;
-  --niebla-bg:      #8A9A8C;
-  --niebla-border:  #A0B0A2;
-
-  /* Bottom bar */
-  --bar-bg:         #0A0A0A;
-  --bar-gold:       #C9942A;
-}
 
 /* ── Fuentes del dashboard ── */
 .dashboard-wrapper,
@@ -55,17 +12,7 @@
 }
 
 /* ── Body: textura precolombina (spec §7) ── */
-body {
-  background-color: var(--bg-paramo);
-  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23b8bca8' fill-opacity='0.25'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-}
-
-/* ── Header override para Páramo (spec §4) ── */
-header {
-  background: var(--header-bg) !important;
-  border-bottom: 2px solid var(--gold) !important;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6) !important;
-}
+/* ya definida en styles.css — no redefinir aquí */
 
 /* ============================================
    TARJETA PÁRAMO (spec §3)
@@ -88,6 +35,12 @@ header {
     0 25px 50px -12px rgba(0, 0, 0, 0.5),
     inset 0 2px 10px var(--gold-glow),
     inset 0 -10px 20px rgba(0, 0, 0, 0.5);
+
+  /* tokens de tarjeta definidos aquí para que styles.css no los pise */
+  --card-top:    #EDF2EB;
+  --card-mid:    #8EA296;
+  --card-bottom: #3B5248;
+  --card-deep:   #2A3828;
 }
 
 .panel {
@@ -109,7 +62,7 @@ header {
     inset 0 -12px 24px rgba(0, 0, 0, 0.55);
 }
 
-/* ── Título de panel — sobre fondo claro (spec §3) ── */
+/* ── Título de panel — Fraunces, sobre fondo claro ── */
 .panel-title {
   font-family: 'Fraunces', 'Crimson Pro', Georgia, serif;
   font-size: 1.1rem;
@@ -133,7 +86,7 @@ header {
 }
 
 /* ============================================
-   EL NÚMERO DE DICIEMBRE (spec §5 — "manda")
+   EL NÚMERO DE DICIEMBRE (spec §5)
    ============================================ */
 .cosecha-number {
   font-family: 'Fraunces', 'Crimson Pro', serif;
@@ -164,6 +117,7 @@ header {
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
   white-space: nowrap;
   flex-shrink: 0;
+  font-family: 'DM Sans', sans-serif;
 }
 
 .badge-niebla {
@@ -180,17 +134,18 @@ header {
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
   white-space: nowrap;
   flex-shrink: 0;
+  font-family: 'DM Sans', sans-serif;
 }
 
 /* ============================================
    INDICADORES (spec §10)
    ============================================ */
 .value-positive,
-.teal-text   { color: var(--teal);     font-weight: 600; }
+.teal-text    { color: var(--teal);     font-weight: 600; }
 .value-negative,
-.red-text    { color: var(--soft-red); font-weight: 600; }
+.red-text     { color: var(--soft-red); font-weight: 600; }
 .value-gold,
-.gold-text   { color: var(--gold);     font-weight: 700; }
+.gold-text    { color: var(--gold);     font-weight: 700; }
 .value-neutral { color: var(--text-muted); }
 
 /* ============================================
@@ -219,6 +174,7 @@ header {
 .dashboard-greeting p {
   font-size: 0.875rem;
   color: #7a7065;
+  font-family: 'DM Sans', sans-serif;
 }
 
 .logout-btn {
@@ -277,7 +233,7 @@ header {
   display: flex;
   align-items: center;
   gap: 9px;
-  padding: 8px 8px;
+  padding: 8px;
   border-radius: 8px;
   transition: background 0.2s ease;
 }
@@ -297,6 +253,7 @@ header {
   font-size: 11px;
   font-weight: 700;
   flex-shrink: 0;
+  font-family: 'DM Sans', sans-serif;
 }
 
 .member-info {
@@ -314,6 +271,7 @@ header {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  font-family: 'DM Sans', sans-serif;
 }
 
 .member-role {
@@ -322,13 +280,7 @@ header {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.3px;
-}
-
-.member-due {
-  font-size: 0.65rem;
-  color: var(--niebla-border);
-  font-weight: 500;
-  font-style: italic;
+  font-family: 'DM Sans', sans-serif;
 }
 
 .sidebar-footer {
@@ -345,6 +297,7 @@ header {
   font-size: 0.7rem;
   font-weight: 700;
   color: var(--teal);
+  font-family: 'DM Sans', sans-serif;
 }
 
 .group-stat.overdue-stat { color: var(--niebla-border); }
@@ -371,6 +324,7 @@ header {
   letter-spacing: 1px;
   color: var(--text-muted);
   margin-bottom: 8px;
+  font-family: 'DM Sans', sans-serif;
 }
 
 .card-label--top {
@@ -380,6 +334,7 @@ header {
   font-weight: 500;
   color: var(--text-muted);
   margin-bottom: 14px;
+  font-family: 'DM Sans', sans-serif;
 }
 
 .card-value {
@@ -397,10 +352,11 @@ header {
   font-size: 0.72rem;
   color: var(--text-muted);
   margin-top: 6px;
+  font-family: 'DM Sans', sans-serif;
 }
 
 /* ============================================
-   FILA 2 — Rueda centrada (sola en su fila)
+   FILA 2 — Rueda centrada
    ============================================ */
 .wheel-row {
   display: flex;
@@ -409,6 +365,16 @@ header {
 
 .wheel-row .panel-wheel-slot {
   width: min(460px, 100%);
+}
+
+/* ============================================
+   FILA 3 — lower grid
+   ============================================ */
+.lower-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1fr 1.1fr;
+  gap: 18px;
+  align-items: start;
 }
 
 /* — Tasas — */
@@ -429,19 +395,21 @@ header {
   border-bottom: 1px solid var(--gold-subtle);
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  font-family: 'DM Sans', sans-serif;
 }
 
 .rate-table th:not(:first-child) { text-align: right; }
 
 .rate-row td {
-  padding: 6px 6px;
+  padding: 6px;
   font-size: 0.78rem;
   color: var(--text-dark);
   border-bottom: 1px solid rgba(201, 148, 42, 0.12);
+  font-family: 'DM Sans', sans-serif;
 }
 
 .rate-row td:not(:first-child) { text-align: right; }
-.rate-row:last-child td { border-bottom: none; }
+.rate-row:last-child td         { border-bottom: none; }
 .rate-best td { color: var(--teal); font-weight: 700; }
 .rate-low td  { opacity: 0.6; }
 
@@ -469,6 +437,7 @@ header {
   margin-top: 6px;
   text-transform: uppercase;
   letter-spacing: 0.3px;
+  font-family: 'DM Sans', sans-serif;
 }
 
 /* — Tarjeta de voto — */
@@ -483,6 +452,7 @@ header {
   color: var(--text-dark);
   line-height: 1.65;
   margin: 10px 0 4px;
+  font-family: 'DM Sans', sans-serif;
 }
 
 .btn-vote {
@@ -509,6 +479,7 @@ header {
   border-radius: 6px;
   border: 1px solid var(--gold-subtle);
   margin-top: auto;
+  font-family: 'DM Sans', sans-serif;
 }
 
 /* — Proyección — */
@@ -532,9 +503,10 @@ header {
   color: var(--text-dark);
   border-bottom: 1px solid rgba(201, 148, 42, 0.12);
   gap: 8px;
+  font-family: 'DM Sans', sans-serif;
 }
 
-.proy-row:last-child { border-bottom: none; align-items: flex-end; }
+.proy-row:last-child  { border-bottom: none; align-items: flex-end; }
 .proy-tax span:first-child { opacity: 0.65; }
 
 .proy-total {
@@ -548,16 +520,7 @@ header {
   color: var(--text-muted);
   font-style: italic;
   margin-top: 4px;
-}
-
-/* ============================================
-   FILA 3 — Análisis (3 tarjetas) + Indicadores
-   ============================================ */
-.lower-grid {
-  display: grid;
-  grid-template-columns: 1.3fr 1fr 1fr 1.1fr;
-  gap: 18px;
-  align-items: start;   /* cada tarjeta crece solo hasta su propio contenido */
+  font-family: 'DM Sans', sans-serif;
 }
 
 /* — Slot de la rueda — */
@@ -607,6 +570,7 @@ header {
   font-size: 0.75rem;
   line-height: 1.7;
   color: var(--text-muted);
+  font-family: 'DM Sans', sans-serif;
 }
 
 .wheel-img-placeholder code {
@@ -655,7 +619,8 @@ header {
 .activity-paid     { background: rgba(29, 158, 117, 0.15); color: var(--teal); }
 .activity-overdue  { background: rgba(139, 32, 32, 0.15);  color: #C87070; }
 
-.activity-info {
+/* nombre duplicado — renombramos el div interno */
+.activity-item .activity-info-text {
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -667,12 +632,14 @@ header {
   font-size: 0.8rem;
   font-weight: 600;
   color: var(--text-dark);
+  font-family: 'DM Sans', sans-serif;
 }
 
 .activity-sub {
   font-size: 0.7rem;
   color: var(--text-muted);
   line-height: 1.4;
+  font-family: 'DM Sans', sans-serif;
 }
 
 .activity-sub strong { color: var(--text-dark); }
@@ -682,6 +649,7 @@ header {
   font-weight: 700;
   color: var(--text-dark);
   flex-shrink: 0;
+  font-family: 'DM Sans', sans-serif;
 }
 
 /* ============================================
@@ -720,11 +688,8 @@ header {
   opacity: 0.8;
 }
 
-.sprout-icon { font-size: 24px; line-height: 1; }
-
-.sprout-wilted {
-  filter: grayscale(65%) sepia(35%) brightness(0.7);
-}
+.sprout-icon    { font-size: 24px; line-height: 1; }
+.sprout-wilted  { filter: grayscale(65%) sepia(35%) brightness(0.7); }
 
 .sprout-name {
   font-size: 0.6rem;
@@ -732,6 +697,7 @@ header {
   color: var(--text-muted);
   line-height: 1.3;
   word-break: break-word;
+  font-family: 'DM Sans', sans-serif;
 }
 
 .sprout-label {
@@ -740,13 +706,14 @@ header {
   color: var(--niebla-border);
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  font-family: 'DM Sans', sans-serif;
 }
 
 /* ============================================
    BOTTOM BAR — franja motivacional (spec §9)
    ============================================ */
 .bottom-bar {
-  background: var(--bar-bg);
+  background: var(--bar-bg, #0A0A0A);
   padding: 14px 24px;
   text-align: center;
   font-family: 'DM Sans', sans-serif;
@@ -756,7 +723,7 @@ header {
 }
 
 .bottom-bar .highlight {
-  color: var(--bar-gold);
+  color: var(--gold);
   font-weight: 700;
 }
 
