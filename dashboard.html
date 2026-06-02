@@ -3,449 +3,318 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Natillera Digital — Mi Dashboard</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>Natillera Digital — Nivel Raíces</title>
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/dashboard.css">
     
     <style>
+        /* =========================================
+           ESTÉTICA "RAÍCES" BASADA EN IMG_8495.PNG
+           ========================================= */
         :root {
-            --raices-primary: #2D6A4F;    /* Verde Esmeralda - Crecimiento seguro */
-            --raices-secondary: #6B4423;  /* Café Tradición - Estabilidad y soporte */
-            --raices-accent: #F9C74F;     /* Amarillo Arepa - Calidez en destacados */
-            --raices-alert: #F4A259;      /* Naranja Atardecer - Empatía y paciencia */
-            --bg-cream: #FFF8E8;          /* Fondo base cálido de hogar */
-            --text-charcoal: #2C2C2C;     /* Texto principal legible */
+            --raices-bg: #F0EFEB; /* Fondo crema/piedra de la imagen */
+            --raices-panel: linear-gradient(180deg, #2A4839 0%, #152A20 100%); /* Verde profundo degradado */
+            --raices-gold: #C69C4E; /* Dorado de los bordes y títulos */
+            --raices-gold-light: #E0C07B;
+            --raices-text: #E8F0EC; /* Texto claro para contrastar el fondo verde */
+            --top-bar-bg: #0C121E; /* Azul marino oscuro superior */
         }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            background-color: var(--bg-cream) !important;
-            color: var(--text-charcoal);
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--raices-bg);
+            background-image: radial-gradient(#d3d1c8 1px, transparent 1px);
+            background-size: 20px 20px;
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
-        /* Ajustes de color sobre las clases existentes del proyecto */
-        .card-value.gold, .gold-text {
-            color: var(--raices-primary) !important; 
-        }
-
-        .teal, .teal-text {
-            color: var(--raices-secondary) !important; 
-        }
-
-        .red-text {
-            color: var(--raices-alert) !important; 
-        }
-
-        /* Indicador digno para aportes pendientes */
-        .member-badge.waiting {
-            background-color: var(--raices-alert);
+        /* Barra Superior Fina */
+        .top-banner {
+            background-color: var(--top-bar-bg);
             color: white;
+            text-align: center;
+            padding: 15px 20px;
+            border-bottom: 3px solid var(--raices-gold);
+        }
+
+        .top-banner h1 {
+            font-family: 'Crimson Pro', serif;
+            color: var(--raices-gold);
+            font-size: 32px;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+        }
+
+        .top-banner p {
+            font-size: 14px;
+            color: #ddd;
+        }
+
+        /* Contenedor Principal a 3 Columnas */
+        .dashboard-container {
+            max-width: 1400px;
+            margin: 30px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr 1fr; /* Columna central más ancha */
+            gap: 25px;
+            align-items: start;
+        }
+
+        /* Estilo general de las Tarjetas (Paneles) */
+        .panel {
+            background: var(--raices-panel);
+            border: 3px solid var(--raices-gold);
+            border-radius: 12px;
+            padding: 25px;
+            color: var(--raices-text);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            margin-bottom: 25px;
+        }
+
+        .panel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(198, 156, 78, 0.4);
+            padding-bottom: 12px;
+            margin-bottom: 20px;
+        }
+
+        .panel-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 24px;
+            color: var(--raices-gold-light);
+            font-weight: 700;
+        }
+
+        /* COLUMNA 1: Tu Grupo (Miembros) */
+        .member-list {
+            list-style: none;
+        }
+        
+        .member-item {
+            display: flex;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .member-avatar {
+            width: 35px;
+            height: 35px;
             border-radius: 50%;
-            display: inline-flex;
+            background: rgba(198, 156, 78, 0.2);
+            border: 1px solid var(--raices-gold);
+            display: flex;
             align-items: center;
             justify-content: center;
-            width: 20px;
-            height: 20px;
-            font-size: 10px;
+            font-weight: bold;
+            color: var(--raices-gold-light);
+            margin-right: 15px;
         }
 
-        .sprout-item.waiting {
-            border-color: rgba(244, 162, 89, 0.3) !important;
-            background: rgba(255, 255, 255, 0.5);
+        .member-info { flex: 1; }
+        .member-name { font-weight: 600; font-size: 14px; }
+        
+        .status-badge {
+            background-color: #386A50;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: bold;
+            letter-spacing: 0.5px;
         }
 
-        .sprout-item.waiting .sprout-icon {
-            opacity: 0.4;
-            filter: grayscale(40%);
+        .status-waiting {
+            background-color: #A36A31; /* Naranja quemado, no rojo */
+        }
+
+        /* COLUMNA 2: La Rueda Central */
+        .center-column {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .wheel-container {
+            width: 100%;
+            max-width: 450px;
+            position: relative;
+            margin-bottom: 30px;
+            filter: drop-shadow(0 15px 30px rgba(0,0,0,0.4));
+        }
+
+        .wheel-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* COLUMNA 3: Rendimiento y Huella */
+        .stat-block {
+            margin-bottom: 20px;
+        }
+        
+        .stat-label {
+            font-size: 12px;
+            text-transform: uppercase;
+            color: #A8B8B0;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+        }
+
+        .stat-value {
+            font-size: 28px;
+            font-family: 'Crimson Pro', serif;
+            color: var(--raices-gold-light);
+            font-weight: 700;
+        }
+
+        .indicator-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        /* Footer Bar */
+        .footer-banner {
+            background-color: var(--raices-bg);
+            text-align: center;
+            padding: 20px;
+            font-weight: 700;
+            font-size: 16px;
+            color: #333;
+            letter-spacing: 1px;
+            margin-top: auto;
+        }
+
+        .footer-banner span { color: #A37F2C; }
+
+        @media (max-width: 1024px) {
+            .dashboard-container { grid-template-columns: 1fr; }
+            .center-column { order: -1; } /* Pone la rueda de primero en móviles */
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="container">
-            <div class="header-content">
-                <div class="logo-header">
-                    <img src="assets/natillera-wheel.png" alt="Natillera Digital">
-                    <div class="logo-text">Natillera <span>digital</span></div>
-                </div>
-                <nav>
-                    <a href="index.html">Inicio</a>
-                    <a href="#" id="navLogout">Cerrar sesión</a>
-                </nav>
-            </div>
-        </div>
+    <header class="top-banner">
+        <h1>TIER 2: RAÍCES</h1>
+        <p>Mes: NOVIEMBRE | Cosecha estimada para cierre de ciclo: <strong style="color:var(--raices-gold);">$2,520,160 COP</strong></p>
     </header>
 
-    <div class="dashboard-wrapper">
-        <div class="container">
+    <main class="dashboard-container">
 
-            <div class="dashboard-header-bar">
-                <div class="dashboard-greeting">
-                    <h1>Bienvenido, <span id="userName">Piloto</span> 👋</h1>
-                    <p>Tu Cosecha 2026 está creciendo · Mes 3 de 12</p>
+        <aside class="panel">
+            <div class="panel-header">
+                <h2 class="panel-title">Tu Grupo</h2>
+                <span>☀️</span>
+            </div>
+            
+            <div class="stat-block">
+                <div class="stat-label">Comunidad Activa (8-12 Miembros)</div>
+            </div>
+
+            <ul class="member-list">
+                <li class="member-item">
+                    <div class="member-avatar">J</div>
+                    <div class="member-info"><div class="member-name">John (Tú)</div></div>
+                    <div class="status-badge">Activo</div>
+                </li>
+                <li class="member-item">
+                    <div class="member-avatar">V</div>
+                    <div class="member-info"><div class="member-name">Viviana Soto</div></div>
+                    <div class="status-badge">Activa</div>
+                </li>
+                <li class="member-item">
+                    <div class="member-avatar">D</div>
+                    <div class="member-info"><div class="member-name">David L.</div></div>
+                    <div class="status-badge">Activo</div>
+                </li>
+                <li class="member-item">
+                    <div class="member-avatar">N</div>
+                    <div class="member-info"><div class="member-name">Natalia</div></div>
+                    <div class="status-badge">Activa</div>
+                </li>
+                <li class="member-item">
+                    <div class="member-avatar">M</div>
+                    <div class="member-info"><div class="member-name">Manuela R.</div></div>
+                    <div class="status-badge">Activa</div>
+                </li>
+                <li class="member-item" style="border-bottom: none;">
+                    <div class="member-avatar" style="border-color:#A36A31;">L</div>
+                    <div class="member-info"><div class="member-name" style="color:#E0C07B;">Leonardo P.</div></div>
+                    <div class="status-badge status-waiting">Pendiente</div>
+                </li>
+            </ul>
+        </aside>
+
+        <section class="center-column">
+            <div class="wheel-container">
+                <img src="assets/natillera-wheel.png" alt="Rueda Natillera 2026">
+            </div>
+
+            <div class="panel" style="width: 100%;">
+                <div class="stat-block">
+                    <div class="stat-label">Rendimiento Consolidado</div>
+                    <div class="stat-value">12.0% E.A.</div>
+                    <p style="font-size: 13px; color: #A8B8B0; margin-top: 5px;">Instrumento actual: NuBank Cajita</p>
                 </div>
-                <button class="logout-btn" onclick="logout()">Cerrar sesión</button>
+            </div>
+        </section>
+
+        <aside>
+            <div class="panel">
+                <div class="panel-header">
+                    <h2 class="panel-title">Rendimiento</h2>
+                    <span>📈</span>
+                </div>
+                <div class="indicator-grid">
+                    <div class="stat-block">
+                        <div class="stat-label">Aporte Mensual</div>
+                        <div class="stat-value" style="font-size: 22px;">$200.000</div>
+                    </div>
+                    <div class="stat-block">
+                        <div class="stat-label">Saldo Acumulado</div>
+                        <div class="stat-value" style="font-size: 22px;">$600.000</div>
+                    </div>
+                </div>
             </div>
 
-            <div class="dashboard-layout">
-
-                <aside class="mi-natillera-sidebar">
-                    <div class="panel panel-sidebar">
-                        <div class="panel-title">Mi Natillera</div>
-                        <ul class="member-list">
-
-                            <li class="member-item member-you">
-                                <div class="member-avatar">J</div>
-                                <div class="member-info">
-                                    <span class="member-name">John</span>
-                                    <span class="member-role">Tú</span>
-                                </div>
-                                <span class="member-badge paid" title="Aporte al día">✓</span>
-                            </li>
-
-                            <li class="member-item">
-                                <div class="member-avatar">V</div>
-                                <div class="member-info">
-                                    <span class="member-name">Viviana</span>
-                                </div>
-                                <span class="member-badge paid">✓</span>
-                            </li>
-
-                            <li class="member-item">
-                                <div class="member-avatar">D</div>
-                                <div class="member-info">
-                                    <span class="member-name">David</span>
-                                </div>
-                                <span class="member-badge paid">✓</span>
-                            </li>
-
-                            <li class="member-item">
-                                <div class="member-avatar">N</div>
-                                <div class="member-info">
-                                    <span class="member-name">Natalia</span>
-                                </div>
-                                <span class="member-badge paid">✓</span>
-                            </li>
-
-                            <li class="member-item">
-                                <div class="member-avatar">A</div>
-                                <div class="member-info">
-                                    <span class="member-name">Andry</span>
-                                </div>
-                                <span class="member-badge paid">✓</span>
-                            </li>
-
-                            <li class="member-item">
-                                <div class="member-avatar">M</div>
-                                <div class="member-info">
-                                    <span class="member-name">Manuela</span>
-                                </div>
-                                <span class="member-badge paid">✓</span>
-                            </li>
-
-                            <li class="member-item">
-                                <div class="member-avatar">L</div>
-                                <div class="member-info">
-                                    <span class="member-name">Leonardo</span>
-                                </div>
-                                <span class="member-badge paid">✓</span>
-                            </li>
-
-                            <li class="member-item">
-                                <div class="member-avatar">8</div>
-                                <div class="member-info">
-                                    <span class="member-name">Miembro 8</span>
-                                </div>
-                                <span class="member-badge paid">✓</span>
-                            </li>
-
-                            <li class="member-item">
-                                <div class="member-avatar">9</div>
-                                <div class="member-info">
-                                    <span class="member-name">Miembro 9</span>
-                                </div>
-                                <span class="member-badge paid">✓</span>
-                            </li>
-
-                            <li class="member-item member-waiting">
-                                <div class="member-avatar" style="background-color: var(--raices-alert); color: white;">10</div>
-                                <div class="member-info">
-                                    <span class="member-name">Miembro 10</span>
-                                    <span class="member-due" style="color: var(--raices-alert);">⏳ Poniéndose al día</span>
-                                </div>
-                                <span class="member-badge waiting" title="Esperando aporte">⏳</span>
-                            </li>
-
-                        </ul>
-                        <div class="sidebar-footer">
-                            <span class="group-stat">9/10 al día</span>
-                            <span class="group-stat overdue-stat" style="color: var(--raices-alert);">1 poniéndose al día</span>
-                        </div>
+            <div class="panel">
+                <div class="panel-header">
+                    <h2 class="panel-title">Tu Huella</h2>
+                </div>
+                <div class="stat-block" style="border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 15px;">
+                    <div class="stat-label">Estatus de Confianza</div>
+                    <div class="stat-value" style="color: #4CAF50; font-size: 20px;">Óptimo</div>
+                </div>
+                
+                <div class="indicator-grid" style="margin-top: 15px;">
+                    <div>
+                        <div class="stat-label">Índice Confianza (ICC)</div>
+                        <div class="stat-value" style="font-size: 18px;">14.06</div>
                     </div>
-                </aside>
-
-                <div class="dashboard-content">
-
-                    <div class="summary-grid">
-
-                        <div class="summary-card">
-                            <span class="card-icon">💰</span>
-                            <div class="card-label">Mi aporte mensual</div>
-                            <div class="card-value gold">$200.000</div>
-                            <div class="card-sub">Cada mes · 12 cuotas</div>
-                        </div>
-
-                        <div class="summary-card">
-                            <span class="card-icon">📈</span>
-                            <div class="card-label">Saldo acumulado</div>
-                            <div class="card-value">$600.000</div>
-                            <div class="card-sub">3 aportes realizados</div>
-                        </div>
-
-                        <div class="summary-card">
-                            <span class="card-icon">🌿</span>
-                            <div class="card-label">Rendimiento ganado</div>
-                            <div class="card-value teal">$11.249</div>
-                            <div class="card-sub">NuBank Cajita · 12% EA</div>
-                        </div>
-
-                        <div class="summary-card">
-                            <span class="card-icon">👥</span>
-                            <div class="card-label">Mi grupo</div>
-                            <div class="card-value">10</div>
-                            <div class="card-sub">9 al día · 1 poniéndose al día</div>
-                        </div>
-
+                    <div>
+                        <div class="stat-label">Tasa Usura SFC</div>
+                        <div class="stat-value" style="font-size: 18px;">26.7%</div>
                     </div>
-
-                    <div class="analysis-grid">
-
-                        <div class="summary-card card-rates">
-                            <div class="card-label card-label--top">📊 Tasas últimos 3 meses (EA)</div>
-                            <table class="rate-table">
-                                <thead>
-                                    <tr>
-                                        <th>Instrumento</th>
-                                        <th>Ene</th>
-                                        <th>Feb</th>
-                                        <th>Mar</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr class="rate-row rate-best">
-                                        <td><span class="rate-dot best"></span>NuBank Cajita</td>
-                                        <td>12.0%</td>
-                                        <td>12.0%</td>
-                                        <td><strong>12.0%</strong></td>
-                                    </tr>
-                                    <tr class="rate-row">
-                                        <td><span class="rate-dot mid"></span>Rappi</td>
-                                        <td>11.2%</td>
-                                        <td>11.5%</td>
-                                        <td>11.5%</td>
-                                    </tr>
-                                    <tr class="rate-row rate-low">
-                                        <td><span class="rate-dot low"></span>Lulo Bank</td>
-                                        <td>10.5%</td>
-                                        <td>10.8%</td>
-                                        <td>10.8%</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <div class="best-badge">✓ Aportes en el mejor instrumento</div>
-                        </div>
-
-                        <div class="summary-card card-vote">
-                            <span class="card-icon">🏦</span>
-                            <div class="card-label">Instrumento actual</div>
-                            <p class="instrument-text">
-                                Tus aportes están en el instrumento bancario con <strong>mejor rendimiento actualmente</strong>.
-                            </p>
-                            <button class="btn-vote" disabled>
-                                🗳️ Votar para mover aportes
-                            </button>
-                            <p class="vote-disclaimer">
-                                Este botón se habilita únicamente cuando existe una mejor tasa de interés en un instrumento financiero distinto y se hayan calculado los costos de transferencia.
-                            </p>
-                        </div>
-
-                        <div class="summary-card card-proyeccion">
-                            <span class="card-icon">🗓️</span>
-                            <div class="card-label">Proyección Diciembre 2026</div>
-                            <div class="proyeccion-rows">
-                                <div class="proy-row">
-                                    <span>Capital total</span>
-                                    <span>$2.400.000</span>
-                                </div>
-                                <div class="proy-row">
-                                    <span>Rendimiento bruto</span>
-                                    <span class="teal-text">+ $129.204</span>
-                                </div>
-                                <div class="proy-row proy-tax">
-                                    <span>Aporte de ley (Retefuente 7%)</span>
-                                    <span class="red-text">− $9.044</span>
-                                </div>
-                                <div class="proy-row proy-total">
-                                    <span>Tu Cosecha Estimada</span>
-                                    <span class="gold-text" style="font-weight: bold;">$2.520.160</span>
-                                </div>
-                            </div>
-                            <p class="proy-disclaimer">Estimado con tasa actual. Sujeto a variación.</p>
-                        </div>
-
-                    </div>
-
-                    <div class="dashboard-main">
-
-                        <div class="panel panel-wheel-slot">
-                            <div class="panel-title">Tu Cosecha 2026</div>
-                            <div class="wheel-center-wrap">
-                                <div class="wheel-image-wrap">
-                                    <img
-                                        src="assets/wheel-flat.png"
-                                        alt="Rueda Natillera 2026"
-                                        class="wheel-flat-img"
-                                        onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
-                                    >
-                                    <div class="wheel-img-placeholder">
-                                        <span class="placeholder-icon" style="opacity:0.35;">🎡</span>
-                                        <p>Coloca tu imagen aquí<br><code>assets/wheel-flat.png</code></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="panel">
-                            <div class="panel-title">Indicadores del mercado</div>
-                            <div class="activity-list">
-
-                                <div class="activity-item">
-                                    <span class="activity-icon activity-interest">↑</span>
-                                    <div class="activity-info">
-                                        <span class="activity-title">NuBank Cajita — Tasa actualizada</span>
-                                        <span class="activity-sub">Subió de 10.2% → <strong>12.0%</strong> EA · Hace 3 días</span>
-                                    </div>
-                                    <span class="activity-amount teal-text">+1.8%</span>
-                                </div>
-
-                                <div class="activity-item">
-                                    <span class="activity-icon activity-neutral">≈</span>
-                                    <div class="activity-info">
-                                        <span class="activity-title">Banco de la República</span>
-                                        <span class="activity-sub">Tasa de referencia se mantiene · Hace 1 semana</span>
-                                    </div>
-                                    <span class="activity-amount">9.75%</span>
-                                </div>
-
-                                <div class="activity-item">
-                                    <span class="activity-icon activity-info">◈</span>
-                                    <div class="activity-info">
-                                        <span class="activity-title">Índice de Confianza del Consumidor</span>
-                                        <span class="activity-sub">ICC Colombia · Actualizado esta semana</span>
-                                    </div>
-                                    <span class="activity-amount teal-text">14.06</span>
-                                </div>
-
-                                <div class="activity-item">
-                                    <span class="activity-icon activity-down">↓</span>
-                                    <div class="activity-info">
-                                        <span class="activity-title">Lulo Bank — Tasa a la baja</span>
-                                        <span class="activity-sub">Bajó 2.2% · De 13.0% a <strong>10.8%</strong> EA · Ayer</span>
-                                    </div>
-                                    <span class="activity-amount red-text">−2.2%</span>
-                                </div>
-
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="panel panel-sprouts">
-                        <div class="panel-title">Nuestro crecimiento — Marzo 2026</div>
-                        <div class="sprouts-grid">
-
-                            <div class="sprout-item paid">
-                                <div class="sprout-icon">🌿</div>
-                                <div class="sprout-name">John</div>
-                            </div>
-                            <div class="sprout-item paid">
-                                <div class="sprout-icon">🌿</div>
-                                <div class="sprout-name">Viviana</div>
-                            </div>
-                            <div class="sprout-item paid">
-                                <div class="sprout-icon">🌿</div>
-                                <div class="sprout-name">David</div>
-                            </div>
-                            <div class="sprout-item paid">
-                                <div class="sprout-icon">🌿</div>
-                                <div class="sprout-name">Natalia</div>
-                            </div>
-                            <div class="sprout-item paid">
-                                <div class="sprout-icon">🌿</div>
-                                <div class="sprout-name">Andry</div>
-                            </div>
-                            <div class="sprout-item paid">
-                                <div class="sprout-icon">🌿</div>
-                                <div class="sprout-name">Manuela</div>
-                            </div>
-                            <div class="sprout-item paid">
-                                <div class="sprout-icon">🌿</div>
-                                <div class="sprout-name">Leonardo</div>
-                            </div>
-                            <div class="sprout-item paid">
-                                <div class="sprout-icon">🌿</div>
-                                <div class="sprout-name">Miembro 8</div>
-                            </div>
-                            <div class="sprout-item paid">
-                                <div class="sprout-icon">🌿</div>
-                                <div class="sprout-name">Miembro 9</div>
-                            </div>
-                            <div class="sprout-item waiting">
-                                <div class="sprout-icon">🌿</div>
-                                <div class="sprout-name">Miembro 10</div>
-                                <div class="sprout-label" style="color: var(--raices-alert); font-size: 0.8em; font-weight: 600;">Pendiente</div>
-                            </div>
-
-                        </div>
-                    </div>
-
-                </div></div></div>
-    </div>
-
-    <footer>
-        <div class="container">
-            <div class="footer-bottom">
-                <p>&copy; 2026 Natillera Digital. Beta Piloto.</p>
+                </div>
             </div>
-        </div>
+        </aside>
+
+    </main>
+
+    <footer class="footer-banner">
+        MANTÉN LA CONSTANCIA. CADA APORTE CONSTRUYE EL FUTURO DE TODOS.
     </footer>
-
-    <script>
-        // Redirección si no hay sesión activa
-        const stored = localStorage.getItem('natillera_user');
-        if (!stored) {
-            window.location.href = 'login.html';
-        } else {
-            const user = JSON.parse(stored);
-            const nameEl = document.getElementById('userName');
-            if (nameEl && user.email) {
-                nameEl.textContent = user.email.split('@')[0];
-            }
-        }
-
-        function logout() {
-            localStorage.removeItem('natillera_user');
-            window.location.href = 'login.html';
-        }
-
-        document.getElementById('navLogout').addEventListener('click', function (e) {
-            e.preventDefault();
-            logout();
-        });
-    </script>
 
 </body>
 </html>
