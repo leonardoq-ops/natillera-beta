@@ -34,70 +34,351 @@
             <div class="dashboard-header-bar">
                 <div class="dashboard-greeting">
                     <h1>Bienvenido, <span id="userName">Piloto</span> 👋</h1>
-                    <p>Tu Cosecha 2026 está creciendo</p>
+                    <p>Tu Cosecha 2026 está creciendo · Mes 3 de 12</p>
                 </div>
                 <button class="logout-btn" onclick="logout()">Cerrar sesión</button>
             </div>
 
-            <!-- Summary cards -->
-            <div class="summary-grid">
-                <div class="summary-card">
-                    <span class="card-icon">💰</span>
-                    <div class="card-label">Mi aporte mensual</div>
-                    <div class="card-value gold">— —</div>
-                    <div class="card-sub">Por definir</div>
-                </div>
-                <div class="summary-card">
-                    <span class="card-icon">📈</span>
-                    <div class="card-label">Saldo acumulado</div>
-                    <div class="card-value">— —</div>
-                    <div class="card-sub">Actualizado en tiempo real</div>
-                </div>
-                <div class="summary-card">
-                    <span class="card-icon">🌾</span>
-                    <div class="card-label">Proyección Diciembre</div>
-                    <div class="card-value teal">— —</div>
-                    <div class="card-sub">Con rendimiento estimado</div>
-                </div>
-                <div class="summary-card">
-                    <span class="card-icon">👥</span>
-                    <div class="card-label">Mi grupo</div>
-                    <div class="card-value">— —</div>
-                    <div class="card-sub">Miembros activos</div>
-                </div>
-            </div>
+            <!-- Dashboard: sidebar + content -->
+            <div class="dashboard-layout">
 
-            <!-- Main panels -->
-            <div class="dashboard-main">
+                <!-- ═══════════════════════════════════════ -->
+                <!--  LEFT SIDEBAR: Mi Natillera             -->
+                <!-- ═══════════════════════════════════════ -->
+                <aside class="mi-natillera-sidebar">
+                    <div class="panel panel-sidebar">
+                        <div class="panel-title">Mi Natillera</div>
+                        <ul class="member-list">
 
-                <div class="panel panel-wheel">
-                    <div class="panel-title">Tu Cosecha 2026</div>
-                    <div class="wheel-container">
-                        <div class="wheel-wrap">
-                            <svg id="natilleraWheel" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg"></svg>
-                            <img src="assets/frog.png" alt="" class="wheel-frog" onerror="this.style.display='none'">
-                        </div>
-                        <div class="wheel-legend">
-                            <div class="wl-item wl-done"><span></span>Mes completado</div>
-                            <div class="wl-item wl-current"><span></span>Mes en curso</div>
-                            <div class="wl-item wl-future"><span></span>Por venir</div>
+                            <li class="member-item member-you">
+                                <div class="member-avatar">J</div>
+                                <div class="member-info">
+                                    <span class="member-name">John</span>
+                                    <span class="member-role">Tú</span>
+                                </div>
+                                <span class="member-badge paid" title="Aporte al día">✓</span>
+                            </li>
+
+                            <li class="member-item">
+                                <div class="member-avatar">V</div>
+                                <div class="member-info">
+                                    <span class="member-name">Viviana</span>
+                                </div>
+                                <span class="member-badge paid">✓</span>
+                            </li>
+
+                            <li class="member-item">
+                                <div class="member-avatar">D</div>
+                                <div class="member-info">
+                                    <span class="member-name">David</span>
+                                </div>
+                                <span class="member-badge paid">✓</span>
+                            </li>
+
+                            <li class="member-item">
+                                <div class="member-avatar">N</div>
+                                <div class="member-info">
+                                    <span class="member-name">Natalia</span>
+                                </div>
+                                <span class="member-badge paid">✓</span>
+                            </li>
+
+                            <li class="member-item">
+                                <div class="member-avatar">A</div>
+                                <div class="member-info">
+                                    <span class="member-name">Andry</span>
+                                </div>
+                                <span class="member-badge paid">✓</span>
+                            </li>
+
+                            <li class="member-item">
+                                <div class="member-avatar">M</div>
+                                <div class="member-info">
+                                    <span class="member-name">Manuela</span>
+                                </div>
+                                <span class="member-badge paid">✓</span>
+                            </li>
+
+                            <li class="member-item">
+                                <div class="member-avatar">L</div>
+                                <div class="member-info">
+                                    <span class="member-name">Leonardo</span>
+                                </div>
+                                <span class="member-badge paid">✓</span>
+                            </li>
+
+                            <li class="member-item">
+                                <div class="member-avatar">8</div>
+                                <div class="member-info">
+                                    <span class="member-name">Miembro 8</span>
+                                </div>
+                                <span class="member-badge paid">✓</span>
+                            </li>
+
+                            <li class="member-item">
+                                <div class="member-avatar">9</div>
+                                <div class="member-info">
+                                    <span class="member-name">Miembro 9</span>
+                                </div>
+                                <span class="member-badge paid">✓</span>
+                            </li>
+
+                            <li class="member-item member-overdue">
+                                <div class="member-avatar">10</div>
+                                <div class="member-info">
+                                    <span class="member-name">Miembro 10</span>
+                                    <span class="member-due">⚠ 15 días en mora</span>
+                                </div>
+                                <span class="member-badge overdue">!</span>
+                            </li>
+
+                        </ul>
+                        <div class="sidebar-footer">
+                            <span class="group-stat">9/10 al día</span>
+                            <span class="group-stat overdue-stat">1 en mora</span>
                         </div>
                     </div>
-                </div>
+                </aside>
 
-                <div class="panel">
-                    <div class="panel-title">Actividad reciente</div>
-                    <div class="placeholder-block">
-                        <span class="placeholder-icon">🔔</span>
-                        <p>
-                            Notificaciones de aportes<br>
-                            y movimientos del grupo.<br>
-                            <strong>Próximamente.</strong>
-                        </p>
+                <!-- ═══════════════════════════════════════ -->
+                <!--  MAIN CONTENT                           -->
+                <!-- ═══════════════════════════════════════ -->
+                <div class="dashboard-content">
+
+                    <!-- ── ROW 1: Quick stats ── -->
+                    <div class="summary-grid">
+
+                        <div class="summary-card">
+                            <span class="card-icon">💰</span>
+                            <div class="card-label">Mi aporte mensual</div>
+                            <div class="card-value gold">$200.000</div>
+                            <div class="card-sub">Cada mes · 12 cuotas</div>
+                        </div>
+
+                        <div class="summary-card">
+                            <span class="card-icon">📈</span>
+                            <div class="card-label">Saldo acumulado</div>
+                            <div class="card-value">$600.000</div>
+                            <div class="card-sub">3 aportes realizados</div>
+                        </div>
+
+                        <div class="summary-card">
+                            <span class="card-icon">🌾</span>
+                            <div class="card-label">Rendimiento ganado</div>
+                            <div class="card-value teal">$11.249</div>
+                            <div class="card-sub">NuBank Cajita · 12% EA</div>
+                        </div>
+
+                        <div class="summary-card">
+                            <span class="card-icon">👥</span>
+                            <div class="card-label">Mi grupo</div>
+                            <div class="card-value">10</div>
+                            <div class="card-sub">9 al día · 1 en mora</div>
+                        </div>
+
                     </div>
-                </div>
 
-            </div>
+                    <!-- ── ROW 2: Analysis cards ── -->
+                    <div class="analysis-grid">
+
+                        <!-- Rates comparator -->
+                        <div class="summary-card card-rates">
+                            <div class="card-label card-label--top">📊 Tasas últimos 3 meses (EA)</div>
+                            <table class="rate-table">
+                                <thead>
+                                    <tr>
+                                        <th>Instrumento</th>
+                                        <th>Ene</th>
+                                        <th>Feb</th>
+                                        <th>Mar</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="rate-row rate-best">
+                                        <td><span class="rate-dot best"></span>NuBank Cajita</td>
+                                        <td>12.0%</td>
+                                        <td>12.0%</td>
+                                        <td><strong>12.0%</strong></td>
+                                    </tr>
+                                    <tr class="rate-row">
+                                        <td><span class="rate-dot mid"></span>Rappi</td>
+                                        <td>11.2%</td>
+                                        <td>11.5%</td>
+                                        <td>11.5%</td>
+                                    </tr>
+                                    <tr class="rate-row rate-low">
+                                        <td><span class="rate-dot low"></span>Lulo Bank</td>
+                                        <td>10.5%</td>
+                                        <td>10.8%</td>
+                                        <td>10.8%</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="best-badge">✓ Aportes en el mejor instrumento</div>
+                        </div>
+
+                        <!-- Current instrument + vote -->
+                        <div class="summary-card card-vote">
+                            <span class="card-icon">🏦</span>
+                            <div class="card-label">Instrumento actual</div>
+                            <p class="instrument-text">
+                                Tus aportes están en el instrumento bancario con <strong>mejor rendimiento actualmente</strong>.
+                            </p>
+                            <button class="btn-vote" disabled>
+                                🗳️ Votar para mover aportes
+                            </button>
+                            <p class="vote-disclaimer">
+                                Este botón se habilita únicamente cuando existe una mejor tasa de interés en un instrumento financiero distinto y se hayan calculado los costos de transferencia.
+                            </p>
+                        </div>
+
+                        <!-- Projected December -->
+                        <div class="summary-card card-proyeccion">
+                            <span class="card-icon">🗓️</span>
+                            <div class="card-label">Proyección Diciembre 2026</div>
+                            <div class="proyeccion-rows">
+                                <div class="proy-row">
+                                    <span>Capital total</span>
+                                    <span>$2.400.000</span>
+                                </div>
+                                <div class="proy-row">
+                                    <span>Rendimiento bruto</span>
+                                    <span class="teal-text">+ $129.204</span>
+                                </div>
+                                <div class="proy-row proy-tax">
+                                    <span>Retención RFI (7%)</span>
+                                    <span class="red-text">− $9.044</span>
+                                </div>
+                                <div class="proy-row proy-total">
+                                    <span>Neto estimado</span>
+                                    <span class="gold-text">$2.520.160</span>
+                                </div>
+                            </div>
+                            <p class="proy-disclaimer">Estimado con tasa actual. Sujeto a variación.</p>
+                        </div>
+
+                    </div>
+
+                    <!-- ── ROW 3: Wheel + Activity ── -->
+                    <div class="dashboard-main">
+
+                        <!-- Wheel image placeholder -->
+                        <div class="panel panel-wheel-slot">
+                            <div class="panel-title">Tu Cosecha 2026</div>
+                            <div class="wheel-center-wrap">
+                            <div class="wheel-image-wrap">
+                                <img
+                                    src="assets/wheel-flat.png"
+                                    alt="Rueda Natillera 2026"
+                                    class="wheel-flat-img"
+                                    onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+                                >
+                                <div class="wheel-img-placeholder">
+                                    <span class="placeholder-icon" style="opacity:0.35;">🎡</span>
+                                    <p>Coloca tu imagen aquí<br><code>assets/wheel-flat.png</code></p>
+                                </div>
+                            </div>
+                            </div><!-- /.wheel-center-wrap -->
+                        </div>
+
+                        <!-- Activity feed — Market signals -->
+                        <div class="panel">
+                            <div class="panel-title">Indicadores del mercado</div>
+                            <div class="activity-list">
+
+                                <div class="activity-item">
+                                    <span class="activity-icon activity-interest">↑</span>
+                                    <div class="activity-info">
+                                        <span class="activity-title">NuBank Cajita — Tasa actualizada</span>
+                                        <span class="activity-sub">Subió de 10.2% → <strong>12.0%</strong> EA · Hace 3 días</span>
+                                    </div>
+                                    <span class="activity-amount teal-text">+1.8%</span>
+                                </div>
+
+                                <div class="activity-item">
+                                    <span class="activity-icon activity-neutral">≈</span>
+                                    <div class="activity-info">
+                                        <span class="activity-title">Banco de la República</span>
+                                        <span class="activity-sub">Tasa de referencia se mantiene · Hace 1 semana</span>
+                                    </div>
+                                    <span class="activity-amount">9.75%</span>
+                                </div>
+
+                                <div class="activity-item">
+                                    <span class="activity-icon activity-info">◈</span>
+                                    <div class="activity-info">
+                                        <span class="activity-title">Índice de Confianza del Consumidor</span>
+                                        <span class="activity-sub">ICC Colombia · Actualizado esta semana</span>
+                                    </div>
+                                    <span class="activity-amount teal-text">14.06</span>
+                                </div>
+
+                                <div class="activity-item">
+                                    <span class="activity-icon activity-down">↓</span>
+                                    <div class="activity-info">
+                                        <span class="activity-title">Lulo Bank — Tasa a la baja</span>
+                                        <span class="activity-sub">Bajó 2.2% · De 13.0% a <strong>10.8%</strong> EA · Ayer</span>
+                                    </div>
+                                    <span class="activity-amount red-text">−2.2%</span>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- ── ROW 4: Sprouts payment status ── -->
+                    <div class="panel panel-sprouts">
+                        <div class="panel-title">Aportes del mes — Marzo 2026</div>
+                        <div class="sprouts-grid">
+
+                            <div class="sprout-item paid">
+                                <div class="sprout-icon">🌱</div>
+                                <div class="sprout-name">John</div>
+                            </div>
+                            <div class="sprout-item paid">
+                                <div class="sprout-icon">🌱</div>
+                                <div class="sprout-name">Viviana</div>
+                            </div>
+                            <div class="sprout-item paid">
+                                <div class="sprout-icon">🌱</div>
+                                <div class="sprout-name">David</div>
+                            </div>
+                            <div class="sprout-item paid">
+                                <div class="sprout-icon">🌱</div>
+                                <div class="sprout-name">Natalia</div>
+                            </div>
+                            <div class="sprout-item paid">
+                                <div class="sprout-icon">🌱</div>
+                                <div class="sprout-name">Andry</div>
+                            </div>
+                            <div class="sprout-item paid">
+                                <div class="sprout-icon">🌱</div>
+                                <div class="sprout-name">Manuela</div>
+                            </div>
+                            <div class="sprout-item paid">
+                                <div class="sprout-icon">🌱</div>
+                                <div class="sprout-name">Leonardo</div>
+                            </div>
+                            <div class="sprout-item paid">
+                                <div class="sprout-icon">🌱</div>
+                                <div class="sprout-name">Miembro 8</div>
+                            </div>
+                            <div class="sprout-item paid">
+                                <div class="sprout-icon">🌱</div>
+                                <div class="sprout-name">Miembro 9</div>
+                            </div>
+                            <div class="sprout-item overdue">
+                                <div class="sprout-icon sprout-wilted">🌱</div>
+                                <div class="sprout-label">mora</div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div><!-- /.dashboard-content -->
+            </div><!-- /.dashboard-layout -->
+
         </div>
     </div>
 
@@ -109,7 +390,6 @@
         </div>
     </footer>
 
-    <script src="js/wheel.js"></script>
     <script>
         // Redirect to login if no session
         const stored = localStorage.getItem('natillera_user');
@@ -123,7 +403,7 @@
             }
         }
 
-function logout() {
+        function logout() {
             localStorage.removeItem('natillera_user');
             window.location.href = 'login.html';
         }
