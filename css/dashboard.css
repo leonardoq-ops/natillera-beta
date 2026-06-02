@@ -764,3 +764,62 @@
   .summary-grid { grid-template-columns: 1fr; }
   .sprouts-grid { grid-template-columns: repeat(4, 1fr); }
 }
+
+/* ── Rueda: más grande y con presencia central ── */
+.wheel-row .panel-wheel-slot {
+  width: min(600px, 100%);
+}
+ 
+.wheel-image-wrap {
+  width: min(100%, 420px) !important;
+}
+ 
+.wheel-center-wrap {
+  padding: 16px 0 12px;
+}
+ 
+/* ── Tarjeta "Instrumento actual" — altura controlada ── */
+.card-vote {
+  max-height: 320px;
+  overflow: hidden;
+}
+ 
+.vote-disclaimer {
+  font-size: 0.63rem;
+  line-height: 1.45;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+ 
+/* ── Indicadores del mercado — altura fija con scroll ── */
+.panel:has(.activity-list) {
+  max-height: 320px;
+}
+ 
+.activity-list {
+  overflow-y: auto;
+  max-height: 240px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--gold-subtle) transparent;
+}
+ 
+.activity-list::-webkit-scrollbar {
+  width: 4px;
+}
+ 
+.activity-list::-webkit-scrollbar-thumb {
+  background: var(--gold-subtle);
+  border-radius: 4px;
+}
+ 
+/* ── Lower grid: altura uniforme entre tarjetas ── */
+.lower-grid {
+  align-items: stretch !important;
+}
+ 
+.lower-grid .summary-card,
+.lower-grid .panel {
+  max-height: 320px;
+}
