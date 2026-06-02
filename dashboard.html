@@ -6,7 +6,7 @@
     <title>Natillera Digital — Mi Dashboard</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=Montserrat:wght@400;500;600;700&family=Fraunces:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/dashboard.css">
 </head>
@@ -34,7 +34,7 @@
             <div class="dashboard-header-bar">
                 <div class="dashboard-greeting">
                     <h1>Bienvenido, <span id="userName">Piloto</span> 👋</h1>
-                    <p>Tu Cosecha 2026 está creciendo · Mes 3 de 12</p>
+                    <p>Tu siembra crece · Mes 3 de 12</p>
                 </div>
                 <button class="logout-btn" onclick="logout()">Cerrar sesión</button>
             </div>
@@ -56,7 +56,6 @@
                                     <span class="member-name">John</span>
                                     <span class="member-role">Tú</span>
                                 </div>
-                                <span class="member-badge paid" title="Aporte al día">✓</span>
                             </li>
 
                             <li class="member-item">
@@ -64,7 +63,6 @@
                                 <div class="member-info">
                                     <span class="member-name">Viviana</span>
                                 </div>
-                                <span class="member-badge paid">✓</span>
                             </li>
 
                             <li class="member-item">
@@ -72,7 +70,6 @@
                                 <div class="member-info">
                                     <span class="member-name">David</span>
                                 </div>
-                                <span class="member-badge paid">✓</span>
                             </li>
 
                             <li class="member-item">
@@ -80,7 +77,6 @@
                                 <div class="member-info">
                                     <span class="member-name">Natalia</span>
                                 </div>
-                                <span class="member-badge paid">✓</span>
                             </li>
 
                             <li class="member-item">
@@ -88,7 +84,6 @@
                                 <div class="member-info">
                                     <span class="member-name">Andry</span>
                                 </div>
-                                <span class="member-badge paid">✓</span>
                             </li>
 
                             <li class="member-item">
@@ -96,7 +91,6 @@
                                 <div class="member-info">
                                     <span class="member-name">Manuela</span>
                                 </div>
-                                <span class="member-badge paid">✓</span>
                             </li>
 
                             <li class="member-item">
@@ -104,7 +98,6 @@
                                 <div class="member-info">
                                     <span class="member-name">Leonardo</span>
                                 </div>
-                                <span class="member-badge paid">✓</span>
                             </li>
 
                             <li class="member-item">
@@ -112,7 +105,6 @@
                                 <div class="member-info">
                                     <span class="member-name">Miembro 8</span>
                                 </div>
-                                <span class="member-badge paid">✓</span>
                             </li>
 
                             <li class="member-item">
@@ -120,22 +112,19 @@
                                 <div class="member-info">
                                     <span class="member-name">Miembro 9</span>
                                 </div>
-                                <span class="member-badge paid">✓</span>
                             </li>
 
-                            <li class="member-item member-overdue">
+                            <li class="member-item">
                                 <div class="member-avatar">10</div>
                                 <div class="member-info">
                                     <span class="member-name">Miembro 10</span>
-                                    <span class="member-due">⚠ 15 días en mora</span>
                                 </div>
-                                <span class="member-badge overdue">!</span>
                             </li>
 
                         </ul>
                         <div class="sidebar-footer">
-                            <span class="group-stat">9/10 al día</span>
-                            <span class="group-stat overdue-stat">1 en mora</span>
+                            <span class="group-stat">9/10 Viva</span>
+                            <span class="group-stat overdue-stat">1 Niebla</span>
                         </div>
                     </div>
                 </aside>
@@ -164,16 +153,16 @@
 
                         <div class="summary-card">
                             <span class="card-icon">🌾</span>
-                            <div class="card-label">Rendimiento ganado</div>
+                            <div class="card-label">Tu Cosecha hasta hoy</div>
                             <div class="card-value teal">$11.249</div>
-                            <div class="card-sub">NuBank Cajita · 12% EA</div>
+                            <div class="card-sub">Lo que sembraste · NuBank 12% EA</div>
                         </div>
 
                         <div class="summary-card">
                             <span class="card-icon">👥</span>
                             <div class="card-label">Mi grupo</div>
                             <div class="card-value">10</div>
-                            <div class="card-sub">9 al día · 1 en mora</div>
+                            <div class="card-sub">9 Viva · 1 Niebla</div>
                         </div>
 
                     </div>
@@ -234,15 +223,15 @@
 
                         <!-- Projected December -->
                         <div class="summary-card card-proyeccion">
-                            <span class="card-icon">🗓️</span>
-                            <div class="card-label">Proyección Diciembre 2026</div>
+                            <span class="card-icon">🌾</span>
+                            <div class="card-label">La Cosecha · Diciembre 2026</div>
                             <div class="proyeccion-rows">
                                 <div class="proy-row">
-                                    <span>Capital total</span>
+                                    <span>Tu siembra total</span>
                                     <span>$2.400.000</span>
                                 </div>
                                 <div class="proy-row">
-                                    <span>Rendimiento bruto</span>
+                                    <span>Lo que sembraste</span>
                                     <span class="teal-text">+ $129.204</span>
                                 </div>
                                 <div class="proy-row proy-tax">
@@ -250,8 +239,8 @@
                                     <span class="red-text">− $9.044</span>
                                 </div>
                                 <div class="proy-row proy-total">
-                                    <span>Neto estimado</span>
-                                    <span class="gold-text">$2.520.160</span>
+                                    <span>Tu Cosecha neta</span>
+                                    <div class="cosecha-number">$2.520.160</div>
                                 </div>
                             </div>
                             <p class="proy-disclaimer">Estimado con tasa actual. Sujeto a variación.</p>
@@ -334,43 +323,34 @@
 
                             <div class="sprout-item paid">
                                 <div class="sprout-icon">🌱</div>
-                                <div class="sprout-name">John</div>
                             </div>
                             <div class="sprout-item paid">
                                 <div class="sprout-icon">🌱</div>
-                                <div class="sprout-name">Viviana</div>
                             </div>
                             <div class="sprout-item paid">
                                 <div class="sprout-icon">🌱</div>
-                                <div class="sprout-name">David</div>
                             </div>
                             <div class="sprout-item paid">
                                 <div class="sprout-icon">🌱</div>
-                                <div class="sprout-name">Natalia</div>
                             </div>
                             <div class="sprout-item paid">
                                 <div class="sprout-icon">🌱</div>
-                                <div class="sprout-name">Andry</div>
                             </div>
                             <div class="sprout-item paid">
                                 <div class="sprout-icon">🌱</div>
-                                <div class="sprout-name">Manuela</div>
                             </div>
                             <div class="sprout-item paid">
                                 <div class="sprout-icon">🌱</div>
-                                <div class="sprout-name">Leonardo</div>
                             </div>
                             <div class="sprout-item paid">
                                 <div class="sprout-icon">🌱</div>
-                                <div class="sprout-name">Miembro 8</div>
                             </div>
                             <div class="sprout-item paid">
                                 <div class="sprout-icon">🌱</div>
-                                <div class="sprout-name">Miembro 9</div>
                             </div>
                             <div class="sprout-item overdue">
                                 <div class="sprout-icon sprout-wilted">🌱</div>
-                                <div class="sprout-label">mora</div>
+                                <div class="sprout-label">Niebla</div>
                             </div>
 
                         </div>
