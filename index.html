@@ -32,6 +32,7 @@
 
     <!-- HERO -->
     <section class="hero">
+        <div class="hero-bg"></div>
         <div class="container">
             <div class="hero-text">
                 <h1>
@@ -45,7 +46,7 @@
                 </div>
 
                 <div class="cta-group">
-                    <a href="#contacto" class="btn btn-primary">Únete al piloto 2026</a>
+                    <a href="#contacto" class="btn btn-primary">Reserva tu lugar · 2026</a>
                     <a href="#como-funciona" class="btn btn-secondary">Conoce más</a>
                 </div>
             </div>
@@ -105,7 +106,7 @@
         <div class="container">
             <h2 class="section-title">Tres niveles. <span>Un ecosistema.</span></h2>
             <div class="tier-grid">
-                <div class="tier-card">
+                <div class="tier-card fade-in">
                     <span class="tier-emoji">🌱</span>
                     <div class="tier-name">Semilla</div>
                     <div class="tier-amount">$50K–$100K COP/mes</div>
@@ -117,7 +118,8 @@
                         <li>Tu Huella Financiera empieza aquí</li>
                     </ul>
                 </div>
-                <div class="tier-card">
+                <div class="tier-card featured fade-in">
+                    <span class="tier-badge">⭐ Más popular</span>
                     <span class="tier-emoji">🌿</span>
                     <div class="tier-name">Raíces</div>
                     <div class="tier-amount">$200,000 COP/mes</div>
@@ -129,7 +131,7 @@
                         <li>Acceso a crédito interno</li>
                     </ul>
                 </div>
-                <div class="tier-card">
+                <div class="tier-card fade-in">
                     <span class="tier-emoji">🌾</span>
                     <div class="tier-name">Cosecha</div>
                     <div class="tier-amount">$400K–$600K COP/mes</div>
@@ -150,22 +152,22 @@
         <div class="container">
             <h2 class="section-title">Por qué confiar en <span>Natillera Digital</span></h2>
             <div class="trust-grid">
-                <div class="trust-item">
+                <div class="trust-item fade-in">
                     <div class="trust-icon">🏛️</div>
                     <h3>Entidades vigiladas</h3>
                     <p>Tu dinero solo en bancos regulados por la Superintendencia Financiera de Colombia. Nu, Lulo, CDTs tradicionales. Nunca en cuentas privadas.</p>
                 </div>
-                <div class="trust-item">
+                <div class="trust-item fade-in">
                     <div class="trust-icon">📜</div>
                     <h3>Contrato legal</h3>
                     <p>Mandato privado entre personas conocidas. 17 cláusulas. Revisado por abogado especializado. Decreto 1981 de 1988 como escudo.</p>
                 </div>
-                <div class="trust-item">
+                <div class="trust-item fade-in">
                     <div class="trust-icon">📊</div>
                     <h3>Transparencia total</h3>
                     <p>Acceso en tiempo real a tu saldo, proyección de diciembre, estado del grupo. Cada transacción con código hash único e inmutable.</p>
                 </div>
-                <div class="trust-item">
+                <div class="trust-item fade-in">
                     <div class="trust-icon">🤝</div>
                     <h3>Entre conocidos</h3>
                     <p>Grupos de 8-12 personas con relación previa verificable. La natillera que siempre existió, con la tecnología y protección legal que merece.</p>
@@ -178,8 +180,12 @@
     <section id="contacto" class="final-cta">
         <div class="container">
             <h2>Tu diciembre 2026 empieza hoy</h2>
-            <p>Únete al proyecto piloto. 10 personas. 12 meses. Una Cosecha que cambia la matemática de diciembre.</p>
-            <a href="mailto:contacto@natilleradigital.co" class="btn btn-primary">Solicita tu lugar</a>
+            <p>10 personas. 12 meses. Una Cosecha que cambia la matemática de diciembre.</p>
+            <div class="cta-group">
+                <!-- Replace 57XXXXXXXXXXX with your WhatsApp number (country code + number, no +) -->
+                <a href="https://wa.me/57XXXXXXXXXXX" class="btn btn-whatsapp">💬 Escríbenos por WhatsApp</a>
+                <a href="mailto:leonardoq@natilleradigital.com" class="btn btn-secondary">Solicita tu lugar</a>
+            </div>
         </div>
     </section>
 
@@ -192,14 +198,16 @@
                 </div>
                 <div class="footer-section">
                     <h4>Legal</h4>
-                    <a href="#">Contrato de Mandato</a>
+                    <a href="files/Contrato_Mandato_v2_3.docx">Contrato de Mandato</a>
                     <a href="#">Términos y condiciones</a>
                     <a href="#">Política de privacidad</a>
                     <a href="#">Marco regulatorio</a>
                 </div>
                 <div class="footer-section">
                     <h4>Contacto</h4>
-                    <a href="mailto:contacto@natilleradigital.co">contacto@natilleradigital.co</a>
+                    <a href="mailto:leonardoq@natilleradigital.com">leonardoq@natilleradigital.com</a>
+                    <!-- Replace 57XXXXXXXXXXX with your WhatsApp number -->
+                    <a href="https://wa.me/57XXXXXXXXXXX">💬 WhatsApp</a>
                     <p>Bogotá, Colombia</p>
                 </div>
                 <div class="footer-section">
@@ -210,13 +218,28 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 Natillera Digital. Proyecto piloto en curso. Todos los derechos reservados.</p>
+                <p>&copy; 2026 Natillera Digital. Todos los derechos reservados.</p>
                 <p style="margin-top: 10px; font-size: 12px; opacity: 0.6;">
                     Este es un acuerdo privado entre personas naturales conocidas. No constituye captación masiva de dinero ni intermediación financiera.
                 </p>
             </div>
         </div>
     </footer>
+
+    <script>
+        (function () {
+            const observer = new IntersectionObserver(
+                (entries) => entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                }),
+                { threshold: 0.12 }
+            );
+            document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        })();
+    </script>
 
 </body>
 </html>
