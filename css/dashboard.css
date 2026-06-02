@@ -408,7 +408,7 @@ header {
 }
 
 .wheel-row .panel-wheel-slot {
-  width: min(500px, 100%);
+  width: min(460px, 100%);
 }
 
 /* — Tasas — */
@@ -557,21 +557,21 @@ header {
   display: grid;
   grid-template-columns: 1.3fr 1fr 1fr 1.1fr;
   gap: 18px;
+  align-items: start;   /* cada tarjeta crece solo hasta su propio contenido */
 }
 
 /* — Slot de la rueda — */
 .panel-wheel-slot { align-items: stretch; }
 
 .wheel-center-wrap {
-  flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 16px 0;
+  padding: 8px 0 4px;
 }
 
 .wheel-image-wrap {
-  width: min(100%, 380px);
+  width: min(100%, 280px);
   aspect-ratio: 1;
   position: relative;
 }
