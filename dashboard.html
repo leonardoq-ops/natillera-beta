@@ -154,148 +154,154 @@
 
                     </div>
 
-                    <!-- ROW 2: Rueda centrada -->
-                    <div class="wheel-row">
-                        <div class="panel panel-wheel-slot">
-                            <div class="panel-title">Tu Cosecha 2026</div>
-                            <div class="wheel-center-wrap">
-                                <div class="wheel-image-wrap">
-                                    <img
-                                        src="assets/natillera-wheel.png"
-                                        alt="Rueda Natillera 2026"
-                                        class="wheel-flat-img"
-                                        onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
-                                    >
-                                    <div class="wheel-img-placeholder">
-                                        <span class="placeholder-icon" style="opacity:0.35;">🎡</span>
-                                        <p>Coloca tu imagen aquí<br><code>assets/natillera-wheel.png</code></p>
+                    <!-- ROW 2: Rueda + tarjetas flanqueando -->
+                    <div class="wheel-cards-row">
+
+                        <!-- LEFT: Tasas + Instrumento -->
+                        <div class="wheel-col-side">
+
+                            <div class="summary-card card-rates">
+                                <div class="card-label card-label--top">📊 Tasas últimos 3 meses (EA)</div>
+                                <table class="rate-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Instrumento</th>
+                                            <th>Ene</th>
+                                            <th>Feb</th>
+                                            <th>Mar</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="rate-row rate-best">
+                                            <td><span class="rate-dot best"></span>NuBank Cajita</td>
+                                            <td>12.0%</td>
+                                            <td>12.0%</td>
+                                            <td><strong>12.0%</strong></td>
+                                        </tr>
+                                        <tr class="rate-row">
+                                            <td><span class="rate-dot mid"></span>Rappi</td>
+                                            <td>11.2%</td>
+                                            <td>11.5%</td>
+                                            <td>11.5%</td>
+                                        </tr>
+                                        <tr class="rate-row rate-low">
+                                            <td><span class="rate-dot low"></span>Lulo Bank</td>
+                                            <td>10.5%</td>
+                                            <td>10.8%</td>
+                                            <td>10.8%</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="best-badge">✓ Aportes en el mejor instrumento</div>
+                            </div>
+
+                            <div class="summary-card card-vote">
+                                <span class="card-icon">🏦</span>
+                                <div class="card-label">Instrumento actual</div>
+                                <p class="instrument-text">
+                                    Nuestra natillera está en el instrumento bancario con <strong>mejor rendimiento actualmente</strong>.
+                                </p>
+                                <button class="btn-vote" disabled>
+                                    🗳️ Votar para mover aportes
+                                </button>
+                                <p class="vote-disclaimer">
+                                    Se activa si otro instrumento ofrece mayor rendimiento neto de costos de traslado.
+                                </p>
+                            </div>
+
+                        </div>
+
+                        <!-- CENTER: Rueda -->
+                        <div class="wheel-col-center">
+                            <div class="panel panel-wheel-slot">
+                                <div class="panel-title">Tu Cosecha 2026</div>
+                                <div class="wheel-center-wrap">
+                                    <div class="wheel-image-wrap">
+                                        <img
+                                            src="assets/natillera-wheel.png"
+                                            alt="Rueda Natillera 2026"
+                                            class="wheel-flat-img"
+                                            onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+                                        >
+                                        <div class="wheel-img-placeholder">
+                                            <span class="placeholder-icon" style="opacity:0.35;">🎡</span>
+                                            <p>Coloca tu imagen aquí<br><code>assets/natillera-wheel.png</code></p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- ROW 3: Análisis + Indicadores -->
-                    <div class="lower-grid">
+                        <!-- RIGHT: Proyección + Indicadores -->
+                        <div class="wheel-col-side">
 
-                        <!-- Rates comparator -->
-                        <div class="summary-card card-rates">
-                            <div class="card-label card-label--top">📊 Tasas últimos 3 meses (EA)</div>
-                            <table class="rate-table">
-                                <thead>
-                                    <tr>
-                                        <th>Instrumento</th>
-                                        <th>Ene</th>
-                                        <th>Feb</th>
-                                        <th>Mar</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr class="rate-row rate-best">
-                                        <td><span class="rate-dot best"></span>NuBank Cajita</td>
-                                        <td>12.0%</td>
-                                        <td>12.0%</td>
-                                        <td><strong>12.0%</strong></td>
-                                    </tr>
-                                    <tr class="rate-row">
-                                        <td><span class="rate-dot mid"></span>Rappi</td>
-                                        <td>11.2%</td>
-                                        <td>11.5%</td>
-                                        <td>11.5%</td>
-                                    </tr>
-                                    <tr class="rate-row rate-low">
-                                        <td><span class="rate-dot low"></span>Lulo Bank</td>
-                                        <td>10.5%</td>
-                                        <td>10.8%</td>
-                                        <td>10.8%</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <div class="best-badge">✓ Aportes en el mejor instrumento</div>
-                        </div>
-
-                        <!-- Current instrument + vote -->
-                        <div class="summary-card card-vote">
-                            <span class="card-icon">🏦</span>
-                            <div class="card-label">Instrumento actual</div>
-                            <p class="instrument-text">
-                                Nuestra natillera está en el instrumento bancario con <strong>mejor rendimiento actualmente</strong>.
-                            </p>
-                            <button class="btn-vote" disabled>
-                                🗳️ Votar para mover aportes
-                            </button>
-                            <p class="vote-disclaimer">
-                                Se activa si otro instrumento ofrece mayor rendimiento neto de costos de traslado.
-                            </p>
-                        </div>
-
-                        <!-- Projected December -->
-                        <div class="summary-card card-proyeccion">
-                            <span class="card-icon">🌾</span>
-                            <div class="card-label">La Cosecha · Diciembre 2026</div>
-                            <div class="proyeccion-rows">
-                                <div class="proy-row">
-                                    <span>Tu siembra total</span>
-                                    <span>$2.400.000</span>
+                            <div class="summary-card card-proyeccion">
+                                <span class="card-icon">🌾</span>
+                                <div class="card-label">La Cosecha · Diciembre 2026</div>
+                                <div class="proyeccion-rows">
+                                    <div class="proy-row">
+                                        <span>Tu siembra total</span>
+                                        <span>$2.400.000</span>
+                                    </div>
+                                    <div class="proy-row">
+                                        <span>Lo que sembraste</span>
+                                        <span class="teal-text">+ $129.204</span>
+                                    </div>
+                                    <div class="proy-row proy-tax">
+                                        <span>Retención RFI (7%)</span>
+                                        <span class="red-text">− $9.044</span>
+                                    </div>
+                                    <div class="proy-row proy-total">
+                                        <span>Tu Cosecha neta</span>
+                                        <div class="cosecha-number">$2.520.160</div>
+                                    </div>
                                 </div>
-                                <div class="proy-row">
-                                    <span>Lo que sembraste</span>
-                                    <span class="teal-text">+ $129.204</span>
-                                </div>
-                                <div class="proy-row proy-tax">
-                                    <span>Retención RFI (7%)</span>
-                                    <span class="red-text">− $9.044</span>
-                                </div>
-                                <div class="proy-row proy-total">
-                                    <span>Tu Cosecha neta</span>
-                                    <div class="cosecha-number">$2.520.160</div>
+                                <p class="proy-disclaimer">Estimado con tasa actual. Sujeto a variación.</p>
+                            </div>
+
+                            <div class="panel">
+                                <div class="panel-title">Indicadores del mercado</div>
+                                <div class="activity-list">
+
+                                    <div class="activity-item">
+                                        <span class="activity-icon activity-interest">↑</span>
+                                        <div class="activity-info">
+                                            <span class="activity-title">NuBank Cajita — Tasa actualizada</span>
+                                            <span class="activity-sub">Subió de 10.2% → <strong>12.0%</strong> EA · Hace 3 días</span>
+                                        </div>
+                                        <span class="activity-amount teal-text">+1.8%</span>
+                                    </div>
+
+                                    <div class="activity-item">
+                                        <span class="activity-icon activity-neutral">≈</span>
+                                        <div class="activity-info">
+                                            <span class="activity-title">Banco de la República</span>
+                                            <span class="activity-sub">Tasa de referencia se mantiene · Hace 1 semana</span>
+                                        </div>
+                                        <span class="activity-amount">9.75%</span>
+                                    </div>
+
+                                    <div class="activity-item">
+                                        <span class="activity-icon activity-info">◈</span>
+                                        <div class="activity-info">
+                                            <span class="activity-title">Índice de Confianza del Consumidor</span>
+                                            <span class="activity-sub">ICC Colombia · Actualizado esta semana</span>
+                                        </div>
+                                        <span class="activity-amount teal-text">14.06</span>
+                                    </div>
+
+                                    <div class="activity-item">
+                                        <span class="activity-icon activity-down">↓</span>
+                                        <div class="activity-info">
+                                            <span class="activity-title">Lulo Bank — Tasa a la baja</span>
+                                            <span class="activity-sub">Bajó 2.2% · De 13.0% a <strong>10.8%</strong> EA · Ayer</span>
+                                        </div>
+                                        <span class="activity-amount red-text">−2.2%</span>
+                                    </div>
+
                                 </div>
                             </div>
-                            <p class="proy-disclaimer">Estimado con tasa actual. Sujeto a variación.</p>
-                        </div>
 
-                        <!-- Activity feed — Market signals -->
-                        <div class="panel">
-                            <div class="panel-title">Indicadores del mercado</div>
-                            <div class="activity-list">
-
-                                <div class="activity-item">
-                                    <span class="activity-icon activity-interest">↑</span>
-                                    <div class="activity-info">
-                                        <span class="activity-title">NuBank Cajita — Tasa actualizada</span>
-                                        <span class="activity-sub">Subió de 10.2% → <strong>12.0%</strong> EA · Hace 3 días</span>
-                                    </div>
-                                    <span class="activity-amount teal-text">+1.8%</span>
-                                </div>
-
-                                <div class="activity-item">
-                                    <span class="activity-icon activity-neutral">≈</span>
-                                    <div class="activity-info">
-                                        <span class="activity-title">Banco de la República</span>
-                                        <span class="activity-sub">Tasa de referencia se mantiene · Hace 1 semana</span>
-                                    </div>
-                                    <span class="activity-amount">9.75%</span>
-                                </div>
-
-                                <div class="activity-item">
-                                    <span class="activity-icon activity-info">◈</span>
-                                    <div class="activity-info">
-                                        <span class="activity-title">Índice de Confianza del Consumidor</span>
-                                        <span class="activity-sub">ICC Colombia · Actualizado esta semana</span>
-                                    </div>
-                                    <span class="activity-amount teal-text">14.06</span>
-                                </div>
-
-                                <div class="activity-item">
-                                    <span class="activity-icon activity-down">↓</span>
-                                    <div class="activity-info">
-                                        <span class="activity-title">Lulo Bank — Tasa a la baja</span>
-                                        <span class="activity-sub">Bajó 2.2% · De 13.0% a <strong>10.8%</strong> EA · Ayer</span>
-                                    </div>
-                                    <span class="activity-amount red-text">−2.2%</span>
-                                </div>
-
-                            </div>
                         </div>
 
                     </div>

@@ -355,25 +355,23 @@
 }
 
 /* ============================================
-   FILA 2 — Rueda centrada
+   FILA 2 — Rueda + tarjetas flanqueando
    ============================================ */
-.wheel-row {
-  display: flex;
-  justify-content: center;
-}
-
-.wheel-row .panel-wheel-slot {
-  width: min(520px, 100%);
-}
-
-/* ============================================
-   FILA 3 — lower grid
-   ============================================ */
-.lower-grid {
+.wheel-cards-row {
   display: grid;
-  grid-template-columns: 1.3fr 1fr 1fr 1.1fr;
-  gap: 18px;
+  grid-template-columns: 1fr 1.5fr 1fr;
+  gap: 20px;
   align-items: start;
+}
+
+.wheel-col-side {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.wheel-col-center {
+  /* wheel panel fills this column naturally */
 }
 
 /* — Tasas — */
@@ -531,7 +529,7 @@
 }
 
 .wheel-image-wrap {
-  width: min(100%, 320px);
+  width: min(100%, 420px);
   aspect-ratio: 1;
   position: relative;
 }
@@ -726,8 +724,9 @@
    RESPONSIVE
    ============================================ */
 @media (max-width: 1100px) {
-  .sprouts-grid { grid-template-columns: repeat(5, 1fr); }
-  .summary-grid { grid-template-columns: repeat(2, 1fr); }
+  .sprouts-grid    { grid-template-columns: repeat(5, 1fr); }
+  .summary-grid    { grid-template-columns: repeat(2, 1fr); }
+  .wheel-cards-row { grid-template-columns: 1fr 1.3fr 1fr; }
 }
 
 @media (max-width: 960px) {
@@ -739,11 +738,26 @@
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     gap: 4px;
   }
-  .lower-grid { grid-template-columns: 1fr 1fr; }
+  /* stack: left cards | wheel | right cards → wheel on top, 2-col cards below */
+  .wheel-cards-row {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "wheel wheel"
+      "left  right";
+  }
+  .wheel-col-center { grid-area: wheel; }
+  .wheel-col-side:first-child { grid-area: left; }
+  .wheel-col-side:last-child  { grid-area: right; }
 }
 
 @media (max-width: 700px) {
-  .lower-grid { grid-template-columns: 1fr; }
+  .wheel-cards-row {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "wheel"
+      "left"
+      "right";
+  }
 }
 
 @media (max-width: 600px) {
