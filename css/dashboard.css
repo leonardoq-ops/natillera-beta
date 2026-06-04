@@ -1,23 +1,23 @@
 /* ============================================
    NATILLERA DIGITAL · Dashboard
-   Estética Páramo v2.1 — DESIGN_SPEC.md
-   Colores extraídos de IMG_8495.PNG
-   NO modificar variables sin leer el spec.
+   Estética Páramo v3.0 — DESIGN_SPEC.md
+   Layout completo corregido
    ============================================ */
 
-/* ── Fuentes del dashboard ── */
+/* ── Fuentes ── */
 .dashboard-wrapper,
 .dashboard-wrapper * {
   font-family: 'DM Sans', 'Montserrat', sans-serif;
 }
 
-/* ── Body: textura precolombina (spec §7) ── */
-/* ya definida en styles.css — no redefinir aquí */
+/* ── Ancho completo ── */
+.dashboard-wrapper .container {
+  max-width: 1400px;
+  padding: 0 32px;
+}
 
 /* ============================================
-   TARJETA PÁRAMO (spec §3)
-   Degradado 180deg: claro arriba → oscuro abajo
-   Triple sombra — no simplificar nunca
+   TARJETA PÁRAMO
    ============================================ */
 .panel,
 .summary-card {
@@ -49,7 +49,7 @@
 }
 
 .summary-card {
-  padding: 22px 18px;
+  padding: 20px 18px;
   transition: box-shadow 0.3s ease, transform 0.25s ease;
 }
 
@@ -64,11 +64,11 @@
 /* ── Título de panel ── */
 .panel-title {
   font-family: 'Fraunces', 'Crimson Pro', Georgia, serif;
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   font-weight: 700;
   color: var(--text-dark);
-  margin-bottom: 16px;
-  padding-bottom: 12px;
+  margin-bottom: 14px;
+  padding-bottom: 10px;
   background: linear-gradient(90deg, transparent, var(--gold), transparent);
   background-size: 100% 1px;
   background-repeat: no-repeat;
@@ -80,33 +80,30 @@
   height: 1px;
   background: linear-gradient(90deg, transparent, var(--gold), transparent);
   opacity: 0.5;
-  margin: 16px 0;
+  margin: 14px 0;
   border: none;
 }
 
 /* ============================================
-   EL NÚMERO DE DICIEMBRE
+   EL NÚMERO DE DICIEMBRE — siempre manda
    ============================================ */
 .cosecha-number {
   font-family: 'Fraunces', 'Crimson Pro', serif;
-  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
   font-weight: 700;
   color: var(--gold);
   text-shadow:
-    0 0 20px var(--gold-glow),
+    0 0 24px var(--gold-glow),
     0 2px 4px rgba(0, 0, 0, 0.8);
   letter-spacing: -0.5px;
   line-height: 1.1;
-  margin-top: 4px;
+  margin-top: 6px;
 }
 
 /* ============================================
-   ESTADOS DE MIEMBROS
+   ESTADOS
    ============================================ */
-.badge-viva {
-  background: var(--viva-bg);
-  border: 1px solid var(--viva-border);
-  color: var(--text-light);
+.badge-viva, .badge-niebla {
   font-size: 0.65rem;
   font-weight: 600;
   padding: 2px 8px;
@@ -117,6 +114,12 @@
   white-space: nowrap;
   flex-shrink: 0;
   font-family: 'DM Sans', sans-serif;
+}
+
+.badge-viva {
+  background: var(--viva-bg);
+  border: 1px solid var(--viva-border);
+  color: var(--text-light);
 }
 
 .badge-niebla {
@@ -124,54 +127,41 @@
   border: 1px solid var(--niebla-border);
   color: var(--text-light);
   opacity: 0.85;
-  font-size: 0.65rem;
-  font-weight: 600;
-  padding: 2px 8px;
-  border-radius: 4px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
-  white-space: nowrap;
-  flex-shrink: 0;
-  font-family: 'DM Sans', sans-serif;
 }
 
 /* ============================================
    INDICADORES
    ============================================ */
-.value-positive,
-.teal-text    { color: var(--teal);     font-weight: 600; }
-.value-negative,
-.red-text     { color: var(--soft-red); font-weight: 600; }
-.value-gold,
-.gold-text    { color: var(--gold);     font-weight: 700; }
-.value-neutral { color: var(--text-muted); }
+.value-positive, .teal-text  { color: var(--teal);     font-weight: 600; }
+.value-negative, .red-text   { color: var(--soft-red); font-weight: 600; }
+.value-gold, .gold-text      { color: var(--gold);     font-weight: 700; }
+.value-neutral               { color: var(--text-muted); }
 
 /* ============================================
-   LAYOUT WRAPPER
+   LAYOUT PRINCIPAL
    ============================================ */
 .dashboard-wrapper {
-  min-height: calc(100vh - 90px);
-  padding: 36px 0 60px;
+  min-height: calc(100vh - 80px);
+  padding: 32px 0 60px;
 }
 
 .dashboard-header-bar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 28px;
+  margin-bottom: 24px;
 }
 
 .dashboard-greeting h1 {
   font-family: 'Fraunces', 'Crimson Pro', serif;
-  font-size: 2rem;
+  font-size: 1.9rem;
   font-weight: 700;
   color: var(--navy);
   margin-bottom: 4px;
 }
 
 .dashboard-greeting p {
-  font-size: 0.875rem;
+  font-size: 0.85rem;
   color: #7a7065;
   font-family: 'DM Sans', sans-serif;
 }
@@ -180,9 +170,9 @@
   background: none;
   border: 2px solid var(--gold);
   color: var(--gold);
-  padding: 10px 24px;
+  padding: 9px 22px;
   border-radius: 60px;
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -195,53 +185,53 @@
   color: var(--navy);
 }
 
-/* ── Dos columnas ── */
+/* ── Sidebar + contenido ── */
 .dashboard-layout {
   display: grid;
-  grid-template-columns: 220px 1fr;
-  gap: 22px;
+  grid-template-columns: 200px 1fr;
+  gap: 20px;
   align-items: start;
 }
 
 .dashboard-content {
   display: flex;
   flex-direction: column;
-  gap: 22px;
+  gap: 20px;
   min-width: 0;
 }
 
 /* ============================================
-   SIDEBAR — MI NATILLERA
+   SIDEBAR
    ============================================ */
 .mi-natillera-sidebar {
   position: sticky;
-  top: 24px;
+  top: 20px;
 }
 
-.panel-sidebar { padding: 20px 14px; }
+.panel-sidebar { padding: 18px 12px; }
 
 .member-list {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 2px;
-  margin-bottom: 14px;
+  gap: 1px;
+  margin-bottom: 12px;
 }
 
 .member-item {
   display: flex;
   align-items: center;
-  gap: 9px;
-  padding: 8px;
-  border-radius: 8px;
+  gap: 8px;
+  padding: 7px 8px;
+  border-radius: 7px;
   transition: background 0.2s ease;
 }
 
 .member-item:hover { background: var(--gold-subtle); }
 
 .member-avatar {
-  width: 28px;
-  height: 28px;
+  width: 26px;
+  height: 26px;
   border-radius: 50%;
   background: var(--gold-subtle);
   color: var(--text-dark);
@@ -249,10 +239,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 700;
   flex-shrink: 0;
-  font-family: 'DM Sans', sans-serif;
 }
 
 .member-info {
@@ -260,32 +249,29 @@
   display: flex;
   flex-direction: column;
   min-width: 0;
-  gap: 1px;
 }
 
 .member-name {
-  font-size: 0.82rem;
+  font-size: 0.8rem;
   font-weight: 600;
   color: var(--text-dark);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  font-family: 'DM Sans', sans-serif;
 }
 
 .member-role {
-  font-size: 0.65rem;
+  font-size: 0.62rem;
   color: var(--teal);
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.3px;
-  font-family: 'DM Sans', sans-serif;
 }
 
 .sidebar-footer {
   display: flex;
   justify-content: space-between;
-  padding-top: 12px;
+  padding-top: 10px;
   background: linear-gradient(90deg, transparent, var(--gold), transparent);
   background-size: 100% 1px;
   background-repeat: no-repeat;
@@ -293,10 +279,9 @@
 }
 
 .group-stat {
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   font-weight: 700;
   color: var(--teal);
-  font-family: 'DM Sans', sans-serif;
 }
 
 .group-stat.overdue-stat { color: var(--niebla-border); }
@@ -307,38 +292,36 @@
 .summary-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 18px;
+  gap: 16px;
 }
 
 .card-icon {
-  font-size: 22px;
-  margin-bottom: 10px;
+  font-size: 20px;
+  margin-bottom: 8px;
   display: block;
 }
 
 .card-label {
-  font-size: 0.68rem;
+  font-size: 0.65rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1px;
   color: var(--text-muted);
-  margin-bottom: 8px;
-  font-family: 'DM Sans', sans-serif;
+  margin-bottom: 6px;
 }
 
 .card-label--top {
-  font-size: 0.75rem;
+  font-size: 0.73rem;
   text-transform: none;
   letter-spacing: 0.2px;
   font-weight: 500;
   color: var(--text-muted);
-  margin-bottom: 14px;
-  font-family: 'DM Sans', sans-serif;
+  margin-bottom: 12px;
 }
 
 .card-value {
   font-family: 'Fraunces', 'Crimson Pro', serif;
-  font-size: 1.75rem;
+  font-size: clamp(1.4rem, 2.5vw, 1.8rem);
   font-weight: 700;
   color: var(--text-dark);
   line-height: 1;
@@ -348,188 +331,48 @@
 .card-value.teal { color: var(--teal); }
 
 .card-sub {
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   color: var(--text-muted);
-  margin-top: 6px;
-  font-family: 'DM Sans', sans-serif;
+  margin-top: 5px;
 }
 
 /* ============================================
-   FILA 2 — Rueda + tarjetas flanqueando
+   FILA 2 — 3 columnas: [lado] [RUEDA] [lado]
    ============================================ */
 .wheel-cards-row {
   display: grid;
-  grid-template-columns: 1fr 1.5fr 1fr;
-  gap: 20px;
-  align-items: start;
+  grid-template-columns: 1fr 1.6fr 1fr;
+  gap: 18px;
+  align-items: stretch;
 }
 
 .wheel-col-side {
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 16px;
 }
 
+/* — Rueda: ocupa todo el alto de sus vecinas — */
 .wheel-col-center {
-  /* wheel panel fills this column naturally */
-}
-
-/* — Tasas — */
-.card-rates { padding: 22px 18px; }
-
-.rate-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 10px;
-}
-
-.rate-table th {
-  text-align: left;
-  font-size: 0.65rem;
-  font-weight: 600;
-  color: var(--text-muted);
-  padding: 4px 6px 8px;
-  border-bottom: 1px solid var(--gold-subtle);
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  font-family: 'DM Sans', sans-serif;
-}
-
-.rate-table th:not(:first-child) { text-align: right; }
-
-.rate-row td {
-  padding: 6px;
-  font-size: 0.78rem;
-  color: var(--text-dark);
-  border-bottom: 1px solid rgba(201, 148, 42, 0.12);
-  font-family: 'DM Sans', sans-serif;
-}
-
-.rate-row td:not(:first-child) { text-align: right; }
-.rate-row:last-child td         { border-bottom: none; }
-.rate-best td { color: var(--teal); font-weight: 700; }
-.rate-low td  { opacity: 0.6; }
-
-.rate-dot {
-  display: inline-block;
-  width: 7px; height: 7px;
-  border-radius: 50%;
-  margin-right: 5px;
-  vertical-align: middle;
-}
-
-.rate-dot.best { background: var(--teal); }
-.rate-dot.mid  { background: var(--gold); }
-.rate-dot.low  { background: var(--text-muted); }
-
-.best-badge {
-  display: inline-block;
-  font-size: 0.65rem;
-  font-weight: 700;
-  color: var(--teal);
-  background: rgba(29, 158, 117, 0.12);
-  border: 1px solid rgba(29, 158, 117, 0.28);
-  padding: 3px 10px;
-  border-radius: 4px;
-  margin-top: 6px;
-  text-transform: uppercase;
-  letter-spacing: 0.3px;
-  font-family: 'DM Sans', sans-serif;
-}
-
-/* — Tarjeta de voto — */
-.card-vote {
-  padding: 22px 18px;
   display: flex;
   flex-direction: column;
 }
 
-.instrument-text {
-  font-size: 0.8rem;
-  color: var(--text-dark);
-  line-height: 1.65;
-  margin: 10px 0 4px;
-  font-family: 'DM Sans', sans-serif;
+.wheel-col-center .panel-wheel-slot {
+  flex: 1;
+  align-items: center;
 }
-
-.btn-vote {
-  width: 100%;
-  padding: 11px 14px;
-  background: var(--gold-subtle);
-  border: 1px solid rgba(201, 148, 42, 0.25);
-  color: rgba(26, 26, 26, 0.35);
-  border-radius: 60px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  cursor: not-allowed;
-  font-family: 'DM Sans', sans-serif;
-  margin: 12px 0 10px;
-  letter-spacing: 0.3px;
-}
-
-.vote-disclaimer {
-  font-size: 0.68rem;
-  color: var(--text-muted);
-  line-height: 1.55;
-  padding: 8px 10px;
-  background: rgba(0, 0, 0, 0.08);
-  border-radius: 6px;
-  border: 1px solid var(--gold-subtle);
-  font-family: 'DM Sans', sans-serif;
-}
-
-/* — Proyección — */
-.card-proyeccion {
-  padding: 22px 18px;
-  display: flex;
-  flex-direction: column;
-}
-
-.proyeccion-rows {
-  margin: 10px 0 8px;
-}
-
-.proy-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  font-size: 0.75rem;
-  padding: 6px 0;
-  color: var(--text-dark);
-  border-bottom: 1px solid rgba(201, 148, 42, 0.12);
-  gap: 8px;
-  font-family: 'DM Sans', sans-serif;
-}
-
-.proy-row:last-child  { border-bottom: none; align-items: flex-end; }
-.proy-tax span:first-child { opacity: 0.65; }
-
-.proy-total {
-  font-weight: 700;
-  font-size: 0.8rem;
-  padding-top: 8px;
-}
-
-.proy-disclaimer {
-  font-size: 0.65rem;
-  color: var(--text-muted);
-  font-style: italic;
-  margin-top: 4px;
-  font-family: 'DM Sans', sans-serif;
-}
-
-/* — Slot de la rueda — */
-.panel-wheel-slot { align-items: center; }
 
 .wheel-center-wrap {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex: 1;
   padding: 12px 0 8px;
 }
 
 .wheel-image-wrap {
-  width: min(100%, 420px);
+  width: min(100%, 380px);
   aspect-ratio: 1;
   position: relative;
 }
@@ -538,6 +381,7 @@
   width: 100%; height: 100%;
   object-fit: contain;
   display: block;
+  filter: drop-shadow(0 8px 24px rgba(201, 148, 42, 0.3));
 }
 
 .wheel-img-placeholder {
@@ -565,7 +409,6 @@
   font-size: 0.75rem;
   line-height: 1.7;
   color: var(--text-muted);
-  font-family: 'DM Sans', sans-serif;
 }
 
 .wheel-img-placeholder code {
@@ -579,14 +422,156 @@
   color: var(--text-gold);
 }
 
-/* — Feed de mercado — */
+/* — Tasas — */
+.card-rates { padding: 20px 16px; }
+
+.rate-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 10px;
+}
+
+.rate-table th {
+  text-align: left;
+  font-size: 0.62rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  padding: 4px 5px 7px;
+  border-bottom: 1px solid var(--gold-subtle);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.rate-table th:not(:first-child) { text-align: right; }
+
+.rate-row td {
+  padding: 5px 5px;
+  font-size: 0.75rem;
+  color: var(--text-dark);
+  border-bottom: 1px solid rgba(201, 148, 42, 0.1);
+}
+
+.rate-row td:not(:first-child) { text-align: right; }
+.rate-row:last-child td         { border-bottom: none; }
+.rate-best td { color: var(--teal); font-weight: 700; }
+.rate-low td  { opacity: 0.6; }
+
+.rate-dot {
+  display: inline-block;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  margin-right: 4px;
+  vertical-align: middle;
+}
+
+.rate-dot.best { background: var(--teal); }
+.rate-dot.mid  { background: var(--gold); }
+.rate-dot.low  { background: var(--text-muted); }
+
+.best-badge {
+  display: inline-block;
+  font-size: 0.62rem;
+  font-weight: 700;
+  color: var(--teal);
+  background: rgba(29, 158, 117, 0.12);
+  border: 1px solid rgba(29, 158, 117, 0.28);
+  padding: 3px 9px;
+  border-radius: 4px;
+  margin-top: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+/* — Instrumento / voto — */
+.card-vote {
+  padding: 20px 16px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.instrument-text {
+  font-size: 0.78rem;
+  color: var(--text-dark);
+  line-height: 1.6;
+  margin: 8px 0 4px;
+}
+
+.btn-vote {
+  width: 100%;
+  padding: 10px 12px;
+  background: var(--gold-subtle);
+  border: 1px solid rgba(201, 148, 42, 0.25);
+  color: rgba(26, 26, 26, 0.35);
+  border-radius: 60px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  cursor: not-allowed;
+  font-family: 'DM Sans', sans-serif;
+  margin: 10px 0 8px;
+  letter-spacing: 0.3px;
+}
+
+.vote-disclaimer {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  padding: 7px 9px;
+  background: rgba(0, 0, 0, 0.08);
+  border-radius: 6px;
+  border: 1px solid var(--gold-subtle);
+  margin-top: auto;
+}
+
+/* — Proyección — */
+.card-proyeccion {
+  padding: 20px 16px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.proyeccion-rows {
+  margin: 8px 0 6px;
+  flex: 1;
+}
+
+.proy-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  font-size: 0.73rem;
+  padding: 6px 0;
+  color: var(--text-dark);
+  border-bottom: 1px solid rgba(201, 148, 42, 0.1);
+  gap: 8px;
+}
+
+.proy-row:last-child  { border-bottom: none; align-items: flex-end; }
+.proy-tax span:first-child { opacity: 0.65; }
+
+.proy-total {
+  font-weight: 700;
+  font-size: 0.78rem;
+  padding-top: 6px;
+}
+
+.proy-disclaimer {
+  font-size: 0.63rem;
+  color: var(--text-muted);
+  font-style: italic;
+  margin-top: 4px;
+}
+
+/* ============================================
+   FILA 3 — Indicadores ancho completo horizontal
+   ============================================ */
+.panel-indicadores { padding: 22px 24px; }
+
 .activity-list {
   display: flex;
   flex-direction: column;
 }
-
-/* Full-width horizontal layout for stand-alone indicadores panel */
-.panel-indicadores { padding: 24px; }
 
 .activity-list--horizontal {
   flex-direction: row;
@@ -597,8 +582,8 @@
   flex: 1;
   flex-direction: column;
   align-items: flex-start;
-  gap: 10px;
-  padding: 16px 20px;
+  gap: 8px;
+  padding: 12px 20px;
   border-bottom: none;
   border-right: 1px solid rgba(201, 148, 42, 0.15);
 }
@@ -607,34 +592,30 @@
   border-right: none;
 }
 
-.activity-list--horizontal .activity-info {
-  flex: unset;
-  width: 100%;
-}
-
 .activity-list--horizontal .activity-amount {
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   font-weight: 700;
   letter-spacing: -0.3px;
+  margin-top: auto;
 }
 
 .activity-item {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 12px 0;
-  border-bottom: 1px solid rgba(201, 148, 42, 0.12);
+  padding: 11px 0;
+  border-bottom: 1px solid rgba(201, 148, 42, 0.1);
 }
 
 .activity-item:last-child { border-bottom: none; }
 
 .activity-icon {
-  width: 32px; height: 32px;
+  width: 30px; height: 30px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 700;
   flex-shrink: 0;
 }
@@ -655,17 +636,15 @@
 }
 
 .activity-title {
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-weight: 600;
   color: var(--text-dark);
-  font-family: 'DM Sans', sans-serif;
 }
 
 .activity-sub {
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   color: var(--text-muted);
   line-height: 1.4;
-  font-family: 'DM Sans', sans-serif;
 }
 
 .activity-sub strong { color: var(--text-dark); }
@@ -675,29 +654,28 @@
   font-weight: 700;
   color: var(--text-dark);
   flex-shrink: 0;
-  font-family: 'DM Sans', sans-serif;
 }
 
 /* ============================================
-   FILA 4 — Aportes del mes (brotes)
+   FILA 4 — Aportes del mes
    ============================================ */
-.panel-sprouts { padding: 24px; }
+.panel-sprouts { padding: 22px 24px; }
 
 .sprouts-grid {
   display: grid;
   grid-template-columns: repeat(10, 1fr);
   gap: 10px;
-  padding: 6px 0;
+  padding: 4px 0;
 }
 
 .sprout-item {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 14px 6px;
+  padding: 12px 4px;
   border-radius: 8px;
   text-align: center;
-  gap: 6px;
+  gap: 5px;
   transition: transform 0.2s ease;
 }
 
@@ -714,25 +692,15 @@
   opacity: 0.8;
 }
 
-.sprout-icon    { font-size: 24px; line-height: 1; }
+.sprout-icon    { font-size: 22px; line-height: 1; }
 .sprout-wilted  { filter: grayscale(65%) sepia(35%) brightness(0.7); }
 
-.sprout-name {
-  font-size: 0.6rem;
-  font-weight: 600;
-  color: var(--text-muted);
-  line-height: 1.3;
-  word-break: break-word;
-  font-family: 'DM Sans', sans-serif;
-}
-
 .sprout-label {
-  font-size: 0.58rem;
+  font-size: 0.56rem;
   font-weight: 700;
   color: var(--niebla-border);
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  font-family: 'DM Sans', sans-serif;
 }
 
 /* ============================================
@@ -756,22 +724,15 @@
 /* ============================================
    RESPONSIVE
    ============================================ */
-@media (max-width: 1100px) {
-  .sprouts-grid    { grid-template-columns: repeat(5, 1fr); }
-  .summary-grid    { grid-template-columns: repeat(2, 1fr); }
-  .wheel-cards-row { grid-template-columns: 1fr 1.3fr 1fr; }
+@media (max-width: 1200px) {
+  .dashboard-wrapper .container { max-width: 100%; padding: 0 24px; }
+  .wheel-cards-row { grid-template-columns: 1fr 1.4fr 1fr; }
+  .summary-grid { grid-template-columns: repeat(4, 1fr); }
 }
 
-@media (max-width: 960px) {
-  .dashboard-layout     { grid-template-columns: 1fr; }
-  .mi-natillera-sidebar { position: static; }
-  .panel-sidebar        { padding: 20px; }
-  .member-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 4px;
-  }
-  /* stack: left cards | wheel | right cards → wheel on top, 2-col cards below */
+@media (max-width: 1000px) {
+  .summary-grid { grid-template-columns: repeat(2, 1fr); }
+  .sprouts-grid { grid-template-columns: repeat(5, 1fr); }
   .wheel-cards-row {
     grid-template-columns: 1fr 1fr;
     grid-template-areas:
@@ -783,13 +744,17 @@
   .wheel-col-side:last-child  { grid-area: right; }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 768px) {
+  .dashboard-layout { grid-template-columns: 1fr; }
+  .mi-natillera-sidebar { position: static; }
+  .member-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 4px;
+  }
   .wheel-cards-row {
     grid-template-columns: 1fr;
-    grid-template-areas:
-      "wheel"
-      "left"
-      "right";
+    grid-template-areas: "wheel" "left" "right";
   }
   .activity-list--horizontal {
     flex-direction: column;
@@ -800,18 +765,17 @@
     flex-direction: row;
     align-items: center;
   }
-  .activity-list--horizontal .activity-item:last-child {
-    border-bottom: none;
-  }
+  .activity-list--horizontal .activity-item:last-child { border-bottom: none; }
 }
 
 @media (max-width: 600px) {
-  .dashboard-header-bar  { flex-direction: column; align-items: flex-start; gap: 14px; }
-  .dashboard-greeting h1 { font-size: 1.6rem; }
-  .summary-grid  { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-  .sprouts-grid  { grid-template-columns: repeat(5, 1fr); gap: 6px; }
-  .sprout-item   { padding: 10px 4px; }
-  .sprout-icon   { font-size: 18px; }
+  .dashboard-wrapper .container { padding: 0 16px; }
+  .dashboard-header-bar { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .dashboard-greeting h1 { font-size: 1.5rem; }
+  .summary-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .sprouts-grid { grid-template-columns: repeat(5, 1fr); gap: 6px; }
+  .sprout-item  { padding: 8px 3px; }
+  .sprout-icon  { font-size: 18px; }
 }
 
 @media (max-width: 400px) {
