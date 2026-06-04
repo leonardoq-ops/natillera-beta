@@ -585,6 +585,39 @@
   flex-direction: column;
 }
 
+/* Full-width horizontal layout for stand-alone indicadores panel */
+.panel-indicadores { padding: 24px; }
+
+.activity-list--horizontal {
+  flex-direction: row;
+  gap: 0;
+}
+
+.activity-list--horizontal .activity-item {
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 16px 20px;
+  border-bottom: none;
+  border-right: 1px solid rgba(201, 148, 42, 0.15);
+}
+
+.activity-list--horizontal .activity-item:last-child {
+  border-right: none;
+}
+
+.activity-list--horizontal .activity-info {
+  flex: unset;
+  width: 100%;
+}
+
+.activity-list--horizontal .activity-amount {
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+}
+
 .activity-item {
   display: flex;
   align-items: center;
@@ -757,6 +790,18 @@
       "wheel"
       "left"
       "right";
+  }
+  .activity-list--horizontal {
+    flex-direction: column;
+  }
+  .activity-list--horizontal .activity-item {
+    border-right: none;
+    border-bottom: 1px solid rgba(201, 148, 42, 0.12);
+    flex-direction: row;
+    align-items: center;
+  }
+  .activity-list--horizontal .activity-item:last-child {
+    border-bottom: none;
   }
 }
 
