@@ -36,7 +36,6 @@
     inset 0 2px 10px var(--gold-glow),
     inset 0 -10px 20px rgba(0, 0, 0, 0.5);
 
-  /* tokens de tarjeta definidos aquí para que styles.css no los pise */
   --card-top:    #EDF2EB;
   --card-mid:    #8EA296;
   --card-bottom: #3B5248;
@@ -62,7 +61,7 @@
     inset 0 -12px 24px rgba(0, 0, 0, 0.55);
 }
 
-/* ── Título de panel — Fraunces, sobre fondo claro ── */
+/* ── Título de panel ── */
 .panel-title {
   font-family: 'Fraunces', 'Crimson Pro', Georgia, serif;
   font-size: 1.1rem;
@@ -76,7 +75,7 @@
   background-position: bottom;
 }
 
-/* ── Separador dorado (spec §8) ── */
+/* ── Separador dorado ── */
 .divider-gold {
   height: 1px;
   background: linear-gradient(90deg, transparent, var(--gold), transparent);
@@ -86,7 +85,7 @@
 }
 
 /* ============================================
-   EL NÚMERO DE DICIEMBRE (spec §5)
+   EL NÚMERO DE DICIEMBRE
    ============================================ */
 .cosecha-number {
   font-family: 'Fraunces', 'Crimson Pro', serif;
@@ -102,7 +101,7 @@
 }
 
 /* ============================================
-   ESTADOS DE MIEMBROS (spec §6)
+   ESTADOS DE MIEMBROS
    ============================================ */
 .badge-viva {
   background: var(--viva-bg);
@@ -138,7 +137,7 @@
 }
 
 /* ============================================
-   INDICADORES (spec §10)
+   INDICADORES
    ============================================ */
 .value-positive,
 .teal-text    { color: var(--teal);     font-weight: 600; }
@@ -364,7 +363,7 @@
 }
 
 .wheel-row .panel-wheel-slot {
-  width: min(460px, 100%);
+  width: min(520px, 100%);
 }
 
 /* ============================================
@@ -478,7 +477,6 @@
   background: rgba(0, 0, 0, 0.08);
   border-radius: 6px;
   border: 1px solid var(--gold-subtle);
-  margin-top: auto;
   font-family: 'DM Sans', sans-serif;
 }
 
@@ -491,7 +489,6 @@
 
 .proyeccion-rows {
   margin: 10px 0 8px;
-  flex: 1;
 }
 
 .proy-row {
@@ -524,17 +521,17 @@
 }
 
 /* — Slot de la rueda — */
-.panel-wheel-slot { align-items: stretch; }
+.panel-wheel-slot { align-items: center; }
 
 .wheel-center-wrap {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 8px 0 4px;
+  padding: 12px 0 8px;
 }
 
 .wheel-image-wrap {
-  width: min(100%, 280px);
+  width: min(100%, 320px);
   aspect-ratio: 1;
   position: relative;
 }
@@ -588,7 +585,6 @@
 .activity-list {
   display: flex;
   flex-direction: column;
-  flex: 1;
 }
 
 .activity-item {
@@ -619,8 +615,7 @@
 .activity-paid     { background: rgba(29, 158, 117, 0.15); color: var(--teal); }
 .activity-overdue  { background: rgba(139, 32, 32, 0.15);  color: #C87070; }
 
-/* nombre duplicado — renombramos el div interno */
-.activity-item .activity-info-text {
+.activity-info {
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -710,7 +705,7 @@
 }
 
 /* ============================================
-   BOTTOM BAR — franja motivacional (spec §9)
+   BOTTOM BAR
    ============================================ */
 .bottom-bar {
   background: var(--bar-bg, #0A0A0A);
@@ -743,6 +738,12 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     gap: 4px;
+  }
+  .lower-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 700px) {
+  .lower-grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 600px) {
@@ -757,17 +758,4 @@
 @media (max-width: 400px) {
   .summary-grid { grid-template-columns: 1fr; }
   .sprouts-grid { grid-template-columns: repeat(4, 1fr); }
-}
-
-/* ── Rueda: tamaño ajustado ── */
-.wheel-row .panel-wheel-slot {
-  width: min(520px, 100%);
-}
-
-.wheel-image-wrap {
-  width: min(100%, 320px);
-}
-
-.wheel-center-wrap {
-  padding: 12px 0 8px;
 }
