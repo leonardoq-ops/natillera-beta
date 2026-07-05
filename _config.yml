@@ -1,3 +1,9 @@
 theme: jekyll-theme-minimal
 title: Natillera Digital
 description: Tradición y Seguridad en un Solo Lugar
+
+# The Streamlit app (engine + dashboards) lives in app/ and deploys
+# separately via Streamlit Community Cloud - GitHub Pages must not
+# try to build it.
+exclude:
+  - app/

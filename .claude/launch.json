@@ -6,6 +6,12 @@
       "runtimeExecutable": "npx",
       "runtimeArgs": ["serve", "-l", "3333", "."],
       "port": 3333
+    },
+    {
+      "name": "natillera-dashboard",
+      "runtimeExecutable": "C:\\Users\\arleo\\anaconda3\\python.exe",
+      "runtimeArgs": ["-m", "streamlit", "run", "app/streamlit_app.py", "--server.port", "8501", "--server.headless", "true"],
+      "port": 8501
     }
   ]
 }
