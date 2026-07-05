@@ -1,4 +1,7 @@
-"""Admin: manual aporte entry (Google Forms integration is out of scope)."""
+"""Admin: manual aporte entry (ej. pagos en efectivo). Se marca como
+VERIFICADO automaticamente ya que no hay comprobante que revisar -
+distinto del flujo de subir comprobante (Registrar Aporte del miembro),
+que queda PENDIENTE_VERIFICACION hasta que el admin lo revise."""
 from datetime import date, datetime
 from decimal import Decimal
 
@@ -33,7 +36,8 @@ with st.form("aporte_form"):
 if submitted:
     ledger = DbLedger(conn)
     ledger.append(EventType.APORTE, member_code, Decimal(str(monto)),
-                  {"fecha_pago": fecha_pago.isoformat()})
+                  {"fecha_pago": fecha_pago.isoformat(),
+                   "status": "VERIFICADO", "source": "manual_admin"})
 
     a_tiempo = fecha_pago.day <= params.dia_limite_pago
     estado = EstadoPago.VIVA if a_tiempo else EstadoPago.NIEBLA_AUTO

@@ -5,6 +5,7 @@ from decimal import Decimal
 import pytest
 
 from natillera_engine.ledger import EventType
+from natillera_engine.proof_status import EstadoVerificacion, estado_verificacion_actual
 from db.client import connect_raw
 from db.ledger_store import DbLedger
 
@@ -66,3 +67,19 @@ def test_append_only_triggers_reject_delete(conn):
     cur = conn.cursor()
     with pytest.raises(Exception):
         cur.execute("DELETE FROM ledger_entries WHERE seq = 0")
+
+
+def test_verificacion_roundtrips_and_derives_status(conn):
+    ledger = DbLedger(conn)
+    aporte = ledger.append(EventType.APORTE, "M01", Decimal("100000"),
+                            {"month": "2026-07", "status": "PENDIENTE_VERIFICACION"})
+    ledger.append(EventType.VERIFICACION, "M01", Decimal("0"),
+                  {"month": "2026-07", "accion": "VERIFICADO",
+                   "ledger_hash_referenciado": aporte.hash})
+
+    ok, bad_seq = ledger.verify_chain()
+    assert ok is True
+    assert bad_seq is None
+
+    entries = [e for e in ledger.all_entries() if e["member_code"] == "M01"]
+    assert estado_verificacion_actual(entries) == EstadoVerificacion.VERIFICADO

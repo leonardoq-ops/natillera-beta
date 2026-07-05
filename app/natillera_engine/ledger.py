@@ -16,6 +16,7 @@ class EventType(str, Enum):
     MORA = "MORA"
     REGULARIZACION = "REGULARIZACION"
     LIQUIDACION = "LIQUIDACION"
+    VERIFICACION = "VERIFICACION"
 
 
 @dataclass(frozen=True)

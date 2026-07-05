@@ -16,6 +16,7 @@ from natillera_engine.retefuente import retefuente
 from natillera_engine.huella import huella, consistencia_pago
 from natillera_engine.mora import EstadoPago
 from natillera_engine.ledger import EventType
+from natillera_engine.proof_status import estado_verificacion_actual
 from ui.components import the_number_card, estado_badge, huella_gauge, ledger_hash_seal, cop
 from ui.terms import LA_COSECHA_LABEL
 
@@ -63,6 +64,16 @@ cur.execute("SELECT estado FROM mora_state_cache WHERE member_code = ?", (auth["
 row = cur.fetchone()
 estado_actual = EstadoPago(row[0]) if row else EstadoPago.VIVA
 estado_badge(estado_actual)
+
+# Verification status is a separate axis from mora (payment timeliness):
+# a member can be VIVA and still PENDIENTE_VERIFICACION at the same time.
+verificables = [e for e in entries
+                if e["event"] in (EventType.APORTE.value, EventType.VERIFICACION.value)
+                and e["detail"].get("month")]
+if verificables:
+    ultimo_mes = max(e["detail"]["month"] for e in verificables)
+    entries_mes = [e for e in verificables if e["detail"]["month"] == ultimo_mes]
+    estado_badge(estado_verificacion_actual(entries_mes))
 
 st.subheader("Huella Financiera")
 meses_transcurridos = max(1, len(aportes))

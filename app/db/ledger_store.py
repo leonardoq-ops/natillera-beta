@@ -100,10 +100,16 @@ class DbLedger:
         return True, None
 
     def all_entries(self) -> list[dict]:
+        """Each row includes both `detail_json` (raw, for display/audit) and
+        `detail` (parsed dict, for callers that need to read fields like
+        detail["status"])."""
         cur = self.conn.cursor()
         cur.execute(
             """SELECT seq, timestamp_utc, event, member_code, amount_cop, detail_json, prev_hash, hash
                FROM ledger_entries ORDER BY seq ASC"""
         )
         cols = ["seq", "timestamp_utc", "event", "member_code", "amount_cop", "detail_json", "prev_hash", "hash"]
-        return [dict(zip(cols, row)) for row in cur.fetchall()]
+        rows = [dict(zip(cols, row)) for row in cur.fetchall()]
+        for row in rows:
+            row["detail"] = json.loads(row["detail_json"])
+        return rows

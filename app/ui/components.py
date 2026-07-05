@@ -3,8 +3,8 @@ from decimal import Decimal
 
 import streamlit as st
 
-from natillera_engine.mora import EstadoPago
-from ui.terms import ESTADO_LABEL, ESTADO_COLOR, THE_NUMBER_LABEL, HUELLA_LABEL
+from ui.terms import ESTADO_LABEL, VERIFICACION_LABEL, BADGE_CLASS, THE_NUMBER_LABEL, HUELLA_LABEL
+from ui.theme import the_number_html
 
 
 def cop(amount: Decimal) -> str:
@@ -12,13 +12,19 @@ def cop(amount: Decimal) -> str:
 
 
 def the_number_card(monto_proyectado: Decimal, sub: str = ""):
-    st.metric(THE_NUMBER_LABEL, cop(monto_proyectado), delta=sub)
+    st.markdown(f'<div class="nat-card">{the_number_html(int(monto_proyectado))}</div>',
+                unsafe_allow_html=True)
+    if sub:
+        st.caption(sub)
 
 
-def estado_badge(estado: EstadoPago):
-    color = ESTADO_COLOR[estado]
-    label = ESTADO_LABEL[estado]
-    st.markdown(f":{color}[**{label}**]")
+def estado_badge(estado):
+    """Polymorphic over both natillera_engine.mora.EstadoPago and
+    natillera_engine.proof_status.EstadoVerificacion - both are simple
+    string enums with the same badge-rendering need."""
+    label = ESTADO_LABEL.get(estado) or VERIFICACION_LABEL.get(estado) or estado.value
+    css_class = BADGE_CLASS.get(estado, "nat-badge-teal")
+    st.markdown(f'<span class="nat-badge {css_class}">{label}</span>', unsafe_allow_html=True)
 
 
 def huella_gauge(score: Decimal):

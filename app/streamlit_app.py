@@ -7,14 +7,18 @@ just another st.Page, swapped in when there's no active session.
 import streamlit as st
 
 from auth.auth import current_auth, render_login_page, logout
+from ui.theme import inject_theme
 
 st.set_page_config(page_title="Natillera Digital", page_icon="💰", layout="wide")
+inject_theme()
 
 auth = current_auth()
 
 login_page = st.Page(render_login_page, title="Ingresar", icon="🔐")
 mi_panel = st.Page("pages/mi_panel.py", title="Mi Panel", icon="📊")
+subir_comprobante = st.Page("pages/subir_comprobante.py", title="Registrar Aporte", icon="📤")
 admin_aportes = st.Page("pages/admin_aportes.py", title="Aportes", icon="🧾")
+admin_verificacion = st.Page("pages/admin_verificacion.py", title="Verificación", icon="✅")
 admin_mora = st.Page("pages/admin_mora.py", title="Mora", icon="⚠️")
 admin_reserva = st.Page("pages/admin_reserva.py", title="Reserva", icon="💧")
 admin_ledger = st.Page("pages/admin_ledger.py", title="Ledger", icon="🔗")
@@ -28,7 +32,7 @@ else:
         if st.button("Cerrar sesión", key="sidebar_logout"):
             logout()
             st.rerun()
-    pages = [admin_aportes, admin_mora, admin_reserva, admin_ledger, admin_cosecha] \
-        if auth["role"] == "admin" else [mi_panel]
+    pages = [admin_aportes, admin_verificacion, admin_mora, admin_reserva, admin_ledger, admin_cosecha] \
+        if auth["role"] == "admin" else [mi_panel, subir_comprobante]
 
 st.navigation(pages).run()
