@@ -73,16 +73,13 @@ def current_auth():
     return st.session_state.get("auth")
 
 
-def require_login(role: str = "any"):
-    """Call at the top of every page. Stops rendering and shows a login
-    form if the session isn't authenticated for the requested role."""
+def render_login_page():
+    """Body of the dedicated login st.Page - only ever registered in
+    streamlit_app.py's nav when there's no active session, so it's the
+    only page Streamlit can route to pre-login."""
     import streamlit as st
 
     from db.client import get_connection
-
-    auth = current_auth()
-    if auth is not None and (role == "any" or auth["role"] == role):
-        return auth
 
     st.title("Natillera Digital — Ingresa a Tu Cuenta")
     tab_member, tab_admin = st.tabs(["Miembro", "Admin"])
@@ -101,4 +98,18 @@ def require_login(role: str = "any"):
             if st.form_submit_button("Ingresar") and login_admin(conn, password):
                 st.rerun()
 
-    st.stop()
+
+def require_login(role: str = "any"):
+    """Defense-in-depth guard for individual admin_*/mi_panel pages: they
+    should only ever be reachable when streamlit_app.py has already
+    registered them in st.navigation() for the right role, but if the
+    session expires mid-visit, force back to the login page instead of
+    rendering member/admin content without a valid session."""
+    import streamlit as st
+
+    auth = current_auth()
+    if auth is not None and (role == "any" or auth["role"] == role):
+        return auth
+
+    logout()
+    st.rerun()

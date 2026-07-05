@@ -1,30 +1,34 @@
-"""Entrypoint. Renders the login gate, then a role-filtered nav menu -
-admins see all admin_* pages, members only see Mi Panel."""
+"""Entrypoint. st.navigation() must be called on EVERY run - including
+before login - otherwise Streamlit falls back to its classic automatic
+sidebar (built from the mere existence of pages/*.py files), which would
+list every admin page to an unauthenticated visitor. Login itself is
+just another st.Page, swapped in when there's no active session.
+"""
 import streamlit as st
 
-from auth.auth import require_login, logout
+from auth.auth import current_auth, render_login_page, logout
 
 st.set_page_config(page_title="Natillera Digital", page_icon="💰", layout="wide")
 
-auth = require_login("any")
+auth = current_auth()
 
-with st.sidebar:
-    st.caption(f"Sesión: {auth.get('name', 'Admin')} ({auth['role']})")
-    if st.button("Cerrar sesión", key="sidebar_logout"):
-        logout()
-        st.rerun()
-
-mi_panel = st.Page("pages/mi_panel.py", title="Mi Panel", icon="📊", default=(auth["role"] == "member"))
-admin_aportes = st.Page("pages/admin_aportes.py", title="Aportes", icon="🧾", default=(auth["role"] == "admin"))
+login_page = st.Page(render_login_page, title="Ingresar", icon="🔐")
+mi_panel = st.Page("pages/mi_panel.py", title="Mi Panel", icon="📊")
+admin_aportes = st.Page("pages/admin_aportes.py", title="Aportes", icon="🧾")
 admin_mora = st.Page("pages/admin_mora.py", title="Mora", icon="⚠️")
 admin_reserva = st.Page("pages/admin_reserva.py", title="Reserva", icon="💧")
 admin_ledger = st.Page("pages/admin_ledger.py", title="Ledger", icon="🔗")
 admin_cosecha = st.Page("pages/admin_cosecha.py", title="La Cosecha", icon="🌾")
 
-if auth["role"] == "admin":
-    pages = [admin_aportes, admin_mora, admin_reserva, admin_ledger, admin_cosecha]
+if auth is None:
+    pages = [login_page]
 else:
-    pages = [mi_panel]
+    with st.sidebar:
+        st.caption(f"Sesión: {auth.get('name', 'Admin')} ({auth['role']})")
+        if st.button("Cerrar sesión", key="sidebar_logout"):
+            logout()
+            st.rerun()
+    pages = [admin_aportes, admin_mora, admin_reserva, admin_ledger, admin_cosecha] \
+        if auth["role"] == "admin" else [mi_panel]
 
-nav = st.navigation(pages)
-nav.run()
+st.navigation(pages).run()
