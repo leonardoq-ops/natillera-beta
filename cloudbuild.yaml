@@ -3,7 +3,7 @@ steps:
     args: ['build', '-f', 'api/Dockerfile', '-t', 'southamerica-east1-docker.pkg.dev/$PROJECT_ID/natillera-repo/natillera-beta:$COMMIT_SHA', '.']
   - name: 'gcr.io/cloud-builders/docker'
     args: ['push', 'southamerica-east1-docker.pkg.dev/$PROJECT_ID/natillera-repo/natillera-beta:$COMMIT_SHA']
-  - name: 'gcr.io/google.com/cloudsdk/cloud-sdk'
+  - name: 'gcr.io/cloud-builders/gcloud'
     entrypoint: gcloud
     args:
       - 'run'
