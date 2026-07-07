@@ -1,15 +1,20 @@
 """Google Drive integration for payment-proof uploads.
 
-Reads the service account JSON from an env var's CONTENT (not a file
-path) since neither Cloud Run nor any host used here guarantees a
-persistent filesystem path for secrets - see GOOGLE_SERVICE_ACCOUNT_JSON
-in .env.example.
+Uses Application Default Credentials (ADC) rather than a downloadable
+service-account JSON key: the target org has an Organization Policy
+(iam.disableServiceAccountKeyCreation) blocking key creation entirely
+(Google's own recommended default, since key files are a standing
+security liability). On Cloud Run, ADC is satisfied automatically by
+attaching the service account directly to the Cloud Run service (its
+"Service account" setting) - google.auth.default() then picks up
+credentials from Cloud Run's metadata server with no key file ever
+existing. For local dev, `gcloud auth application-default login`
+achieves the same thing using your own user credentials.
 """
 import io
-import json
 import os
 
-from google.oauth2 import service_account
+import google.auth
 from googleapiclient.discovery import build
 from googleapiclient.http import MediaIoBaseUpload
 
@@ -17,8 +22,7 @@ SCOPES = ["https://www.googleapis.com/auth/drive"]
 
 
 def _get_drive_service():
-    info = json.loads(os.environ["GOOGLE_SERVICE_ACCOUNT_JSON"])
-    creds = service_account.Credentials.from_service_account_info(info, scopes=SCOPES)
+    creds, _ = google.auth.default(scopes=SCOPES)
     return build("drive", "v3", credentials=creds)
 
 

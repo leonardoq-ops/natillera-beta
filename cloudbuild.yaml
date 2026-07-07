@@ -1,0 +1,16 @@
+steps:
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-f', 'api/Dockerfile', '-t', 'gcr.io/$PROJECT_ID/natillera-beta:$COMMIT_SHA', '.']
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'gcr.io/$PROJECT_ID/natillera-beta:$COMMIT_SHA']
+  - name: 'gcr.io/google.com/cloudsdk/cloud-sdk'
+    entrypoint: gcloud
+    args:
+      - 'run'
+      - 'deploy'
+      - 'natillera-beta'
+      - '--image=gcr.io/$PROJECT_ID/natillera-beta:$COMMIT_SHA'
+      - '--region=southamerica-east1'
+      - '--platform=managed'
+images:
+  - 'gcr.io/$PROJECT_ID/natillera-beta:$COMMIT_SHA'
